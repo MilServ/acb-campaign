@@ -4,7 +4,7 @@ import owlLogo from "./acblogo.jpg";
 
 function Header() {
   return (
-    <div className="container" style={{ borderTop: "solid #68813c 8px" }}>
+    <div className="container" style={{ borderTop: "solid #68813c 10px" }}>
       <header
         className="App-header text-center"
         style={{

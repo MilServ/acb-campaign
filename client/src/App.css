@@ -11,6 +11,16 @@
   text-align: center;
 }
 
+/* Owl logo right above footer in Body.js file */
+.App-logo-2 {
+  height: 24vmin;
+  pointer-events: none;
+  display: inline-block;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
 .nySkyline {
   background-image: url("./images/nyskyline.jpg");
   background-size: cover;
@@ -26,13 +36,28 @@
   padding-top: 110px;
 }
 
+@media (max-width: 770px) {
+  #first2Know {
+    font-size: 3.5rem;
+    padding-top: 90px;
+  }
+
+  .introducing {
+    font-size: 1rem;
+  }
+
+  #displayNone {
+    display: none;
+  }
+}
+
 #introducing {
   font-size: 1.65rem;
   color: whitesmoke;
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .first {
@@ -69,19 +94,71 @@
 }
 
 #ctaBtns {
-  border-radius: 8px;
-  width: "125px";
-  height: "100px";
-  color: whitesmoke;
-  text-align: center;
-  background-color: #bb6125;
+  min-width: 125px !important;
+  min-height: 44px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.owlLookingDown {
+  z-index: -3;
+  height: 10vmin;
+  position: relative;
+}
+.owlCards {
+  font-weight: 700 !important;
+}
+
+.popularCraftRow {
+  margin: 30px 10px;
+}
+
+.brewerPics {
+  width: 30vmin;
+  padding-top: 8px;
+}
+
+.brewerTitle {
+  color: #68813c;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+.brewerShortStory {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+#readMore {
+  color: #bb6125;
+  font-weight: 600;
+}
+
+.ctaBtnsRow {
+  padding: 50px;
+}
+
+.reactGridContainer {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* padding-left: 0 !important;
+  padding-right: 0 !important; */
+  min-width: 100% !important;
+}
+
+.footerTop {
+  background-color: #68813c;
+  font-weight: 500;
+  color: whitesmoke;
+  padding: 5px 5px;
+}
+
+.footerBottom {
+  background-color: #afb8a1;
+  font-weight: 600;
+  color: #68813c;
+  padding: 35px 5px;
 }

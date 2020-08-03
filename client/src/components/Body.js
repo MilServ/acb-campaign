@@ -6,6 +6,8 @@ import kegs from "../images/kegs.jpg";
 import beerServer from "../images/beerserver.jpg";
 import acbApp from "../images/acbapp.png";
 import acbLogo from "./acblogo.jpg";
+import Call2ActionBtns from "./Call2ActionBtns";
+import Footer from "./Footer";
 
 function Body() {
   return (
@@ -22,8 +24,9 @@ function Body() {
         <div className="row text-center">
           <div className="col-md-6">
             <b id="introducing">
-              Introducing the beverage purchasing platform that<br></br> puts
-              New York on and off-premise retailers in control.
+              Introducing the beverage purchasing platform that
+              <br id="displayNone"></br> puts New York on and off-premise
+              retailers in control.
             </b>
           </div>
         </div>
@@ -73,42 +76,82 @@ function Body() {
         </Row>
 
         <Row className="text-center">
-          <OwlCards />
+          <Col>
+            <OwlCards />
+          </Col>
         </Row>
 
-        <Row>
-          <b className="first">
-            POPULAR CRAFT LABELS NOW AVAILABLE FOR NEW YORK:
-          </b>
+        <Row className="popularCraftRow">
+          <Col>
+            <b className="first">
+              POPULAR CRAFT LABELS NOW AVAILABLE FOR NEW YORK:
+            </b>
+          </Col>
         </Row>
         <Row>
-          <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">Brewer 1</b>
+          <Col xs={12} s={12} md={2} lg={2}>
+            {" "}
+            <img src={beerServer} className="brewerPics" alt="beer server" />
           </Col>
 
-          <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">Brewer 2</b>
+          <Col xs={12} s={12} md={2} lg={2}>
+            <b className="brewerTitle">Acme Beer Co.</b>
+            <p className="brewerShortStory">
+              Mayflower Brewing’s founder, Drew Brosseau, and his small team of
+              artisan brewers in Plymouth, Massachusetts have been delighting
+              craft beer<span id="readMore"> > Learn more</span>
+            </p>
           </Col>
-          <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">Brewer 3</b>
+          <Col xs={12} s={12} md={2} lg={2}>
+            <img src={beerServer} className="brewerPics" alt="beer server" />
           </Col>
-        </Row>
-        <Row>
-          <img src={acbLogo} className="App-logo text-center" alt="owl logo" />
-        </Row>
-        <Row>
-          <Col xs={12} s={12} md={3} lg={3}>
-            <div id="ctaBtns">Sign-up Now</div>
+          <Col xs={12} s={12} md={2} lg={2}>
+            <b className="brewerTitle">Brewer 2</b>
+            <p className="brewerShortStory">
+              Mayflower Brewing’s founder, Drew Brosseau, and his small team of
+              artisan brewers in Plymouth, Massachusetts have been delighting
+              craft beer<span id="readMore"> > Learn more</span>
+            </p>
           </Col>
 
-          <Col xs={12} s={12} md={3} lg={3}>
-            <div id="ctaBtns">Demo</div>
+          <Col xs={12} s={12} md={2} lg={2}>
+            <img src={beerServer} className="brewerPics" alt="beer server" />
           </Col>
-          <Col xs={12} s={12} md={3} lg={3}>
-            <div id="ctaBtns">Buy Now</div>
+          <Col xs={12} s={12} md={2} lg={2}>
+            <b className="brewerTitle">Brewer 3</b>
+            <p className="brewerShortStory">
+              Mayflower Brewing’s founder, Drew Brosseau, and his small team of
+              artisan brewers in Plymouth, Massachusetts have been delighting
+              craft beer<span id="readMore"> > Learn more</span>
+            </p>
+          </Col>
+        </Row>
+        <Row align="center" className="text-center center bottomOwlRow">
+          <Col
+            xs={12}
+            s={12}
+            md={12}
+            lg={12}
+            xlg={12}
+            className="App-header text-center"
+            style={{
+              maxHeight: "150px",
+              paddingTop: "28px",
+              paddingBottom: "10px",
+            }}
+          >
+            <img src={acbLogo} className="App-logo-2" alt="logo" />
+          </Col>
+        </Row>
+        <br></br>
+        <Row className="text-center ctaBtnsRow">
+          <Col>
+            <Call2ActionBtns />
           </Col>
         </Row>
       </Container>
+
+      <Footer />
     </div>
   );
 }

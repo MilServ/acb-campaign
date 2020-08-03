@@ -1,28 +1,39 @@
 import React from "react";
+import { Container, Row, Col } from "react-grid-system";
 import "../App.css";
-import owlLogo from "./acblogo.jpg";
 
 function Footer() {
   return (
-    <div className="container" style={{ borderTop: "solid #68813c 8px" }}>
-      <header
-        className="App-header text-center"
-        style={{
-          maxHeight: "85px",
-          padding: "15px",
-          paddingBottom: "10px",
-        }}
-      >
-        <img src={owlLogo} className="App-logo" alt="logo" />
-      </header>
-      {/* <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-       
-      </a> */}
+    <div>
+      <Container className="reactGridContainer text-center">
+        <Row className="footerTop text-center">
+          <Col
+            xs={12}
+            s={12}
+            md={12}
+            lg={12}
+            style={{ paddingLeft: 60, paddingRight: 60 }}
+          >
+            <p style={{ padding: 8 }}>
+              If you have questions click here and an ACB customer
+              representative will be happy to show you how the platform works
+              and help you get started. It takes less than 10 minutes.
+            </p>
+          </Col>
+        </Row>
+
+        <Row className="row text-center footerBottom">
+          <Col>
+            <b>Contact</b>
+          </Col>
+
+          <Col>
+            <b>(508)-904-9425</b>
+          </Col>
+
+          <Col>SM ICONS</Col>
+        </Row>
+      </Container>
     </div>
   );
 }
