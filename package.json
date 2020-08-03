@@ -1,0 +1,21 @@
+{
+  "name": "acb-campaign",
+  "version": "1.0.0",
+  "description": "Initializing repo for ACB's F2K campaign",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MilServ/acb-campaign.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MilServ/acb-campaign/issues"
+  },
+  "homepage": "https://github.com/MilServ/acb-campaign#readme"
+}
