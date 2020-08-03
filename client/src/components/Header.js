@@ -8,8 +8,8 @@ function Header() {
       <header
         className="App-header text-center"
         style={{
-          maxHeight: "85px",
-          padding: "15px",
+          maxHeight: "70px",
+          paddingTop: "18px",
           paddingBottom: "10px",
         }}
       >

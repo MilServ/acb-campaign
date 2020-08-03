@@ -1,6 +1,11 @@
 import React from "react";
 import "../App.css";
 import { Container, Row, Col } from "react-grid-system";
+import OwlCards from "../components/OwlCards";
+import kegs from "../images/kegs.jpg";
+import beerServer from "../images/beerserver.jpg";
+import acbApp from "../images/acbapp.png";
+import acbLogo from "./acblogo.jpg";
 
 function Body() {
   return (
@@ -24,7 +29,7 @@ function Body() {
         </div>
       </div>
 
-      <Container style={{ paddingTop: "20px" }}>
+      <Container style={{ paddingTop: "20px", marginTop: "10px" }}>
         <Row className="text-center">
           <Col xs={12} s={12} md={4} lg={4}>
             <b className="first">FIRST</b>
@@ -32,6 +37,13 @@ function Body() {
             <b className="firstText">
               TO KNOW WHAT <br></br>CUSTOMERS WANT NEXT.
             </b>
+            <br></br>
+            <img
+              src={beerServer}
+              style={{ marginTop: "30px" }}
+              className="featured-images"
+              alt="beer server"
+            />
           </Col>
 
           <Col xs={12} s={12} md={4} lg={4}>
@@ -40,46 +52,60 @@ function Body() {
             <b className="firstText">
               TO ORDER BEFORE <br></br>INVENTORIES ARE GONE.
             </b>
+            <br></br>
+            <img
+              style={{ marginTop: "30px" }}
+              src={kegs}
+              className="featured-images"
+              alt="kegs"
+            />
           </Col>
           <Col xs={12} s={12} md={4} lg={4}>
             <b className="first">FIRST</b>
             <br></br>
             <b className="firstText">
               TO TAKE ALL THAT TIME YOU WASTE <br></br>BUYING THE OLD WAY AND
-              USE IT TO DO MORE SELLING THE WAY.
+              USE IT TO DO MORE SELLING THE NEW WAY.
             </b>
+            <br></br>
+            <img src={acbApp} className="featured-images" alt="ACB app" />
           </Col>
         </Row>
 
         <Row className="text-center">
-          {/* Photos go in these columns */}
-          <Col xs={12} s={12} md={4} lg={4}></Col>
+          <OwlCards />
+        </Row>
 
-          <Col xs={12} s={12} md={4} lg={4}></Col>
-          <Col xs={12} s={12} md={4} lg={4}></Col>
+        <Row>
+          <b className="first">
+            POPULAR CRAFT LABELS NOW AVAILABLE FOR NEW YORK:
+          </b>
         </Row>
         <Row>
           <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">n control.</b>
+            <b id="introducing">Brewer 1</b>
           </Col>
 
           <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">n control.</b>
+            <b id="introducing">Brewer 2</b>
           </Col>
           <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">n control.</b>
+            <b id="introducing">Brewer 3</b>
           </Col>
         </Row>
         <Row>
+          <img src={acbLogo} className="App-logo text-center" alt="owl logo" />
+        </Row>
+        <Row>
           <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">n control.</b>
+            <div id="ctaBtns">Sign-up Now</div>
           </Col>
 
           <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">n control.</b>
+            <div id="ctaBtns">Demo</div>
           </Col>
           <Col xs={12} s={12} md={3} lg={3}>
-            <b id="introducing">n control.</b>
+            <div id="ctaBtns">Buy Now</div>
           </Col>
         </Row>
       </Container>
