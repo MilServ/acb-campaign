@@ -21,6 +21,10 @@
   text-align: center;
 }
 
+.bottomOwlRow {
+  margin-bottom: 10px;
+}
+
 .nySkyline {
   background-image: url("./images/nyskyline.jpg");
   background-size: cover;
@@ -94,14 +98,17 @@
 }
 
 #ctaBtns {
-  min-width: 125px !important;
+  min-height: 44px;
+  transition: all 0.2s ease-in-out;
+}
+
+#ctaBtns:hover {
+  transform: scale(1.1);
   min-height: 44px;
 }
 
 .owlLookingDown {
-  z-index: -3;
-  height: 10vmin;
-  position: relative;
+  width: 30%;
 }
 .owlCards {
   font-weight: 700 !important;
@@ -112,7 +119,7 @@
 }
 
 .brewerPics {
-  width: 30vmin;
+  width: 100%;
   padding-top: 8px;
 }
 
@@ -161,4 +168,21 @@
   font-weight: 600;
   color: #68813c;
   padding: 35px 5px;
+}
+
+#seeMoreBrewers {
+  color: #bb6125;
+  font-size: 0.98rem;
+  font-weight: 400;
+  border: solid #bb6125 2px;
+  border-radius: 4px;
+  padding: 8px;
+  transition: all 0.2s ease-in-out;
+  width: 84%;
+  cursor: pointer;
+  scale: 0.5;
+}
+
+#seeMoreBrewers:hover {
+  transform: scale(1.05);
 }

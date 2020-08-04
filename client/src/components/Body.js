@@ -8,6 +8,12 @@ import acbApp from "../images/acbapp.png";
 import acbLogo from "./acblogo.jpg";
 import Call2ActionBtns from "./Call2ActionBtns";
 import Footer from "./Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandshake } from "@fortawesome/free-solid-svg-icons";
+
+// ACB Colors
+// ACB Green: #68813c
+// ACB Brown: #bb6125
 
 function Body() {
   return (
@@ -124,6 +130,25 @@ function Body() {
               artisan brewers in Plymouth, Massachusetts have been delighting
               craft beer<span id="readMore"> > Learn more</span>
             </p>
+          </Col>
+        </Row>
+        <Row style={{ marginBottom: 70 }} className="text-center">
+          <Col
+            xs={8}
+            s={8}
+            md={3}
+            lg={3}
+            xlg={3}
+            style={{
+              maxHeight: "50px",
+              paddingTop: "15px",
+              paddingBottom: "10px",
+              textAlign: "center",
+            }}
+          >
+            <div id="seeMoreBrewers">
+              <FontAwesomeIcon icon={faHandshake} /> See More Brewer Partners
+            </div>
           </Col>
         </Row>
         <Row align="center" className="text-center center bottomOwlRow">

@@ -16,7 +16,10 @@ const ColorButton = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   margin: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
+    width: "155px",
+    borderRadius: 20,
+    fontSize: "0.90rem",
   },
 }));
 
