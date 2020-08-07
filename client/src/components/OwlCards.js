@@ -72,9 +72,8 @@ export default function OwlCards() {
               >
                 <CardContent>
                   <Typography variant="h5" component="h2" className="owlCards">
-                    Full Control <br></br>Order only what you want
-                    <br></br>
-                    when you want it
+                    <b>Full Control</b>
+                    <br></br>Order only what you want when you want it.
                   </Typography>
                 </CardContent>
               </Card>

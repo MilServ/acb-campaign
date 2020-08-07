@@ -1,9 +1,28 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const routes = require("./routes/api/routes");
 const path = require("path");
+
+// To prevent Access-Control-Allow-Origin errors
 const cors = require("cors");
+const allowCrossDomain = (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "*");
+  if (req.method === "OPTIONS") {
+    res.send(200);
+  } else {
+    next();
+  }
+};
+
+//Routes to be used in future versions
+// const authRoutes = require("./routes/auth");
+// const userRoutes = require("./routes/user");
+// const signupsRoutes = require("./routes/signups");
+// const buyersRoutes = require("./routes/buyers");
+const demoRoutes = require("./routes/demo");
 
 const app = express();
 
@@ -15,11 +34,11 @@ app.use(
   })
 );
 
+// Activating Passport authentication for Version 2
 //Passport Middleware
-const passport = require("passport");
-app.use(passport.initialize());
-require("./config/passport")(passport);
-require("dotenv").config();
+// const passport = require("passport");
+// app.use(passport.initialize());
+// require("./config/passport")(passport);
 
 //DB Config
 const db = require("./config/keys").mongoURI;
@@ -34,10 +53,12 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
-//Use routes
-app.use("/api/routes", routes);
-
+//Allow Cross Domain to prevent CORS errors
 app.use(cors());
+app.use(allowCrossDomain);
+
+//routes middleware
+app.use("/api", demoRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

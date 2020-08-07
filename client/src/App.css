@@ -31,6 +31,13 @@
   height: 85vmin;
 }
 
+.nySkylineFormBg {
+  background-image: url("./images/nyskyline.jpg");
+  background-size: cover;
+  height: 85vmin;
+  padding: auto 0;
+}
+
 #first2Know {
   font-size: 5rem;
   color: whitesmoke;
@@ -108,7 +115,7 @@
 }
 
 .owlLookingDown {
-  width: 30%;
+  width: 15%;
 }
 .owlCards {
   font-weight: 700 !important;

@@ -40,7 +40,7 @@ export default function Call2ActionBtns() {
               Sign-up Now
             </ColorButton>
           </Col>
-          <Col>
+          {/* <Col>
             <ColorButton
               variant="contained"
               color="primary"
@@ -49,7 +49,7 @@ export default function Call2ActionBtns() {
             >
               Request Demo
             </ColorButton>
-          </Col>
+          </Col> */}
           <Col>
             <ColorButton
               variant="contained"

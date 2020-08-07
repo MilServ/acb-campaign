@@ -6,10 +6,10 @@ import kegs from "../images/kegs.jpg";
 import beerServer from "../images/beerserver.jpg";
 import acbApp from "../images/acbapp.png";
 import acbLogo from "./acblogo.jpg";
-import Call2ActionBtns from "./Call2ActionBtns";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
+import Call2ActionBtns from "../components/Call2ActionBtns";
 
 // ACB Colors
 // ACB Green: #68813c
@@ -80,13 +80,11 @@ function Body() {
             <img src={acbApp} className="featured-images" alt="ACB app" />
           </Col>
         </Row>
-
         <Row className="text-center">
           <Col>
             <OwlCards />
           </Col>
         </Row>
-
         <Row className="popularCraftRow">
           <Col>
             <b className="first">
@@ -168,12 +166,11 @@ function Body() {
             <img src={acbLogo} className="App-logo-2" alt="logo" />
           </Col>
         </Row>
-        <br></br>
         <Row className="text-center ctaBtnsRow">
           <Col>
             <Call2ActionBtns />
           </Col>
-        </Row>
+        </Row>{" "}
       </Container>
 
       <Footer />
