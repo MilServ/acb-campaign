@@ -58,10 +58,9 @@ export default function DemoForm(props) {
       demoPhoneNo,
     };
 
-    Axios.post("/api/demo", formData).then((response) => {
+    Axios.post("/api/demo/demo", formData).then((response) => {
       if (response.data.success) {
         alert(formData + " Successfully submitted.");
-        props.history.push("/");
       } else {
         alert("Sorry.  Failed to submit form");
       }

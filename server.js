@@ -22,7 +22,7 @@ const allowCrossDomain = (req, res, next) => {
 // const userRoutes = require("./routes/user");
 // const signupsRoutes = require("./routes/signups");
 // const buyersRoutes = require("./routes/buyers");
-const demoRoutes = require("./routes/demo");
+// const demoRoutes = require("./routes/demo");
 
 const app = express();
 
@@ -58,7 +58,7 @@ app.use(cors());
 app.use(allowCrossDomain);
 
 //routes middleware
-app.use("/api", demoRoutes);
+app.use("/api/demo", require("./routes/demo"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

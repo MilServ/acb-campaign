@@ -1,7 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const Demo = require("../models/demo");
 
-const { create } = require("../controllers/demo");
+router.post("/demo", (req, res) => {
+  const demo = new Demo(req.body);
+  console.log(req.body);
+
+  demo.save((err) => {
+    if (err) returnres.status(400).json({ success: false, err });
+    return res.status(200).json({ success: true });
+  });
+});
 
 // Commenting out all code that will be used for Version 2
 
@@ -16,7 +25,7 @@ const { create } = require("../controllers/demo");
 // const { requireSignin, adminMiddleware } = require("../controllers/auth");
 
 // This route is for leads signing up for demos
-router.post("/demo", create);
+// router.post("/demo", create);
 
 // This route gets and displays list of Veteran applicants.
 // Only Admins can see this Veterans list
