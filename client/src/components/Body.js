@@ -105,7 +105,8 @@ function Body() {
               artisan brewers in Plymouth, Massachusetts have been delighting
               craft beer
               <span id="readMore">
-                <SignUpModal />
+                > Learn more
+                {/* <SignUpModal /> */}
               </span>
             </p>
           </Col>

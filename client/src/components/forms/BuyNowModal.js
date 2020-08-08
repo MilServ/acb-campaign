@@ -1,289 +1,463 @@
-import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
-import { Col, Row, Container } from "../Grid";
-import { Input, FormBtn } from "../Form";
-import API from "../../utils/API";
-import ReactTooltip from "react-tooltip";
-import { ListItem } from "../List";
-import DeleteBtn from "../DeleteBtn";
-import Moment from "react-moment";
-import "./style.css";
+import React, { useState, Component } from "react";
+import { Modal } from "react-bootstrap";
+import Axios from "axios";
+import Button from "@material-ui/core/Button";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 
-// The ...props means, spread all of the passed props onto this element
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(2),
+    width: "155px",
+    borderRadius: 20,
+    fontSize: "0.90rem",
+  },
+}));
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText("#bb6125"),
+    backgroundColor: "#bb6125",
+    "&:hover": {
+      backgroundColor: "#bb6125",
+    },
+  },
+}))(Button);
 
-// That way we don't have to define them all individually
-export default class ModalInput extends Component {
-  state = {
-    numbers: [],
-    gameNo: "",
-    no1: "",
-    no2: "",
-    no3: "",
-    no4: "",
-    no5: "",
-    powerball: "",
-  };
+export default function BuyNowForm(props) {
+  const [signupFirstN, setSignupFirstN] = useState("");
+  const [signupLastN, setSignupLastN] = useState("");
+  const [signupRole, setSignupRole] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupLicState, setSignupLicState] = useState("");
+  const [signupStateLicNo, ssetSignupStateLicNo] = useState("");
+  const [signupBizName, setSignupBizName] = useState("");
+  const [signupBizStreet, setSignupBizStreet] = useState("");
+  const [signupBizCity, setSignupBizCity] = useState("");
+  const [signupBizState, setSignupBizState] = useState("");
+  const [signupBizZip, setSignupBizZip] = useState("");
+  const [signupPhoneNo, setSignupPhoneNo] = useState("");
 
-  componentDidMount() {
-    this.loadNumbers();
-    // this.displayRecentNo();
-  }
+  const classes = useStyles();
 
-  loadNumbers = () => {
-    API.getNumbers()
-      .then(
-        (res) =>
-          this.setState({
-            numbers: res.data[0].numbers,
-            gameNo: "",
-            no1: "",
-            no2: "",
-            no3: "",
-            no4: "",
-            no5: "",
-            powerball: "",
-          })
-        // this.setState({ ...this.state, numbers: res.data })
-      )
-      .catch((err) => console.log(err));
-  };
+  const [show, setShow] = useState(false);
 
-  handleInputChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      ...this.state,
-      [name]: value,
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const formData = {
+      signupLastN,
+      signupFirstN,
+      signupEmail,
+      signupRole,
+      signupLicState,
+      signupStateLicNo,
+      signupBizName,
+      signupBizStreet,
+      signupBizCity,
+      signupBizState,
+      signupBizZip,
+      signupPhoneNo,
+    };
+
+    Axios.post("/api/leads/buyer", formData).then((response) => {
+      if (response.data.success) {
+        alert(formData + " Successfully submitted.");
+      } else {
+        alert("Sorry.  Failed to submit form");
+      }
     });
   };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    if (
-      this.state.gameNo &&
-      this.state.no1 &&
-      this.state.no2 &&
-      this.state.no3 &&
-      this.state.no4 &&
-      this.state.no5 &&
-      this.state.powerball
-    ) {
-      API.saveNumber({
-        gameNo: this.state.gameNo,
-        no1: this.state.no1,
-        no2: this.state.no2,
-        no3: this.state.no3,
-        no4: this.state.no4,
-        no5: this.state.no5,
-        powerball: this.state.powerball,
-      })
-        .then((res) => this.loadNumbers())
-        .catch((err) => console.log(err));
-    }
-  };
+  return (
+    <>
+      <ColorButton
+        onClick={handleShow}
+        style={{ cursor: "pointer" }}
+        variant="contained"
+        color="primary"
+        id="ctaBtns"
+        className={classes.margin}
+      >
+        BUY NOW
+      </ColorButton>
+      <Modal
+        size="lg"
+        variant="primary"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        style={{ "max-height": "calc(100vh - 5px)", overflowY: "auto" }}
+        show={show}
+        onHide={handleClose}
+        closeButton
+        onClick={handleClose}
+      >
+        {/* <Modal.Header style={{ backgroundColor: "red" }}>
+          <Modal.Title>Signup Now</Modal.Title>
+        </Modal.Header> */}
+        <Modal.Body>
+          {" "}
+          <div
+            className="container"
+            style={{ backgroundColor: "rgba(0,0,0,0.75", padding: "50px" }}
+          >
+            <form onSubmit={onSubmit}>
+              {/* <div className="container"> */}
+              <div className="row">
+                <div className="col-md-12">
+                  <h2>
+                    <b
+                      style={{
+                        color: "whitesmoke",
+                      }}
+                    >
+                      ORDER NOW
+                    </b>
+                  </h2>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <h4
+                    style={{
+                      color: "whitesmoke",
+                      fontWeight: "400",
+                      fontSize: ".90rem",
+                    }}
+                  >
+                    Sign up today for a free, no-obligation demo. A
+                    representative will contact you within 24 hours to book a
+                    time that's right for you.
+                  </h4>
+                </div>
+              </div>
+              <hr></hr>
+              <div>
+                <div className="row left text-left">
+                  <div className="col-md-2 mb-2">
+                    <label
+                      style={{
+                        color: "whitesmoke",
+                        fontWeight: "500",
+                        fontSize: ".80rem",
+                        marginBottom: 10,
+                      }}
+                    >
+                      Business Contact Person{" "}
+                    </label>
+                  </div>
+                </div>
+                <div className="row pt-2" style={{ marginTop: "8px" }}>
+                  <div className="col-md-12 pt-2">
+                    <input
+                      style={{
+                        height: 30,
+                        width: "40%",
+                        border: "solid #383838 .75px",
+                        borderRadius: 5,
+                        marginLeft: 2,
+                        marginRight: 3,
+                      }}
+                      value={signupLastN}
+                      onChange={(e) => setSignupFirstN(e.target.value)}
+                      placeholder="First name"
+                      type="text"
+                      name="firstName"
+                      required
+                    />
 
-  deleteNumber = (id) => {
-    const currentNumbers = this.state.numbers;
-    API.deleteNumber(id)
-      .then(
-        (res) =>
-          this.setState({
-            numbers: currentNumbers.filter((number) => number._id !== id),
-          }),
-        this.loadNumbers()
-      )
-      .catch((err) => console.log(err));
-  };
+                    <input
+                      style={{
+                        border: "solid #383838 .75px",
+                        borderRadius: 5,
+                        height: 30,
+                        width: "40%",
+                      }}
+                      value={signupLastN}
+                      onChange={(e) => setSignupLastN(e.target.value)}
+                      placeholder="Last name"
+                      type="text"
+                      name="lastName"
+                      required
+                    />
+                  </div>
+                </div>
 
-  render() {
-    return (
-      <div className="modal">
-        <Modal
-          {...this.props}
-          size="lg"
-          variant="primary"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-          style={{ "max-height": "calc(100vh - 5px)", overflowY: "auto" }}
-        >
-          <Modal.Header closeButton></Modal.Header>
-          <Modal.Body style={{ lineHeight: "0.5" }}>
-            <Modal.Title id="enterTixNo" style={{ fontFamily: "Arial" }}>
-              <p
+                <div className="row">
+                  <div className="col-md-12">
+                    <input
+                      style={{
+                        border: "solid #383838 .75px",
+                        borderRadius: 5,
+                        marginLeft: 2,
+                        height: 30,
+                        marginTop: 8,
+                        width: "82%",
+                      }}
+                      value={signupEmail}
+                      onChange={(e) => setSignupEmail(e.target.value)}
+                      placeholder="Email address"
+                      type="email"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <br></br>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-md-12">
+                  <h2>
+                    <b
+                      style={{
+                        color: "whitesmoke",
+                      }}
+                    >
+                      SCHEDULE A DEMO
+                    </b>
+                  </h2>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <h4
+                    style={{
+                      color: "whitesmoke",
+                      fontWeight: "400",
+                      fontSize: ".90rem",
+                    }}
+                  >
+                    Sign up today for a free, no-obligation demo. A
+                    representative will contact you within 24 hours to book a
+                    time that's right for you.
+                  </h4>
+                </div>
+              </div>
+              <hr></hr>
+              <div>
+                <div className="row left text-left">
+                  <div className="col-md-2 mb-2">
+                    <label
+                      style={{
+                        color: "whitesmoke",
+                        fontWeight: "500",
+                        fontSize: ".80rem",
+                        marginBottom: 10,
+                      }}
+                    >
+                      Business Contact Person{" "}
+                    </label>
+                  </div>
+                </div>
+                <div className="row pt-2" style={{ marginTop: "8px" }}>
+                  <div className="col-md-12 pt-2">
+                    <input
+                      style={{
+                        height: 30,
+                        width: "40%",
+                        border: "solid #383838 .75px",
+                        borderRadius: 5,
+                        marginLeft: 2,
+                        marginRight: 3,
+                      }}
+                      value={signupLastN}
+                      onChange={(e) => setSignupFirstN(e.target.value)}
+                      placeholder="First name"
+                      type="text"
+                      name="firstName"
+                      required
+                    />
+
+                    <input
+                      style={{
+                        border: "solid #383838 .75px",
+                        borderRadius: 5,
+                        height: 30,
+                        width: "40%",
+                      }}
+                      value={signupLastN}
+                      onChange={(e) => setSignupLastN(e.target.value)}
+                      placeholder="Last name"
+                      type="text"
+                      name="lastName"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-12">
+                    <input
+                      style={{
+                        border: "solid #383838 .75px",
+                        borderRadius: 5,
+                        marginLeft: 2,
+                        height: 30,
+                        marginTop: 8,
+                        width: "82%",
+                      }}
+                      value={signupEmail}
+                      onChange={(e) => setSignupEmail(e.target.value)}
+                      placeholder="Email address"
+                      type="email"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <br></br>
+                </div>
+              </div>
+
+              {/* <div>
+                <label
+                  style={{
+                    color: "whitesmoke",
+                    fontWeight: "500",
+                    fontSize: ".80rem",
+                  }}
+                >
+                  Business Information{" "}
+                </label>
+                <br></br>
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "81%",
+                  }}
+                  value={demoBizName}
+                  onChange={(e) => setDemoBizName(e.target.value)}
+                  placeholder="Business Name"
+                  type="text"
+                  name="Business Name"
+                  required
+                />
+                <br></br>
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "81%",
+                  }}
+                  value={demoBizStreet}
+                  onChange={(e) => setDemoBizStreet(e.target.value)}
+                  placeholder="Business Street Address"
+                  type="text"
+                  name="Business Street Address"
+                  required
+                />
+              </div>
+              <div> */}
+
+              {/* <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "40.5%",
+                  }}
+                  value={demoBizCity}
+                  onChange={(e) => setDemoBizCity(e.target.value)}
+                  placeholder="Business City"
+                  type="text"
+                  name="Business City"
+                  required
+                />
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "10%",
+                  }}
+                  value={demoBizState}
+                  onChange={(e) => setDemoBizState(e.target.value)}
+                  placeholder="State"
+                  type="text"
+                  name="Business State"
+                  required
+                />
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "23%",
+                  }}
+                  value={demoBizZip}
+                  onChange={(e) => setDemoBizZip(e.target.value)}
+                  placeholder="Zip Code"
+                  type="text"
+                  name="Company Zip Code"
+                  // required
+                />
+
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "28%",
+                  }}
+                  value={demoLicState}
+                  onChange={(e) => setDemoLicState(e.target.value)}
+                  placeholder="Business Lic. State"
+                  type="text"
+                  name="Business License State"
+                  required
+                />
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "50%",
+                  }}
+                  value={demoStateLicNo}
+                  onChange={(e) => setDemoStateLicNo(e.target.value)}
+                  placeholder="Business License #"
+                  type="text"
+                  name="Business Lic. No"
+                  required
+                />
+              </div>
+
+              <br></br>
+
+              <ColorButton
+                variant="contained"
+                color="primary"
+                style={{ margin: 20, borderRadius: 20 }}
+                id="ctaBtns"
+                onClick={onSubmit}
+                className={classes.margin}
+              >
+                SCHEDULE DEMO
+              </ColorButton>
+              <h4
                 style={{
-                  fontFamily: "Quantico",
-                  color: "blue",
-                  fontSize: "2rem",
+                  color: "whitesmoke",
+                  fontWeight: "300",
+                  fontSize: ".80rem",
                 }}
               >
-                <b>
-                  POWER<span style={{ color: "red" }}>BALLER</span>
-                </b>
-              </p>
-              <b>All fields required for submission.</b>
-            </Modal.Title>
-
-            <Container fluid>
-              <Row>
-                <Col size="md-12 sm-6">
-                  <form className="noInput">
-                    <div className="row center">
-                      <input
-                        style={{
-                          height: "20px",
-                          backgroundColor: "whitesmoke",
-                          width: "25%",
-                          border: "solid red 2px",
-                          borderRadius: "4px",
-                          padding: "4px",
-                        }}
-                        className="gameNo"
-                        value={this.state.gameNo}
-                        onChange={this.handleInputChange}
-                        name="gameNo"
-                        placeholder="Required field"
-                        type="number"
-                        fontSize="10px"
-                        data-tip="Enter Reference #"
-                        data-text-color="red"
-                      />
-                      <ReactTooltip />
-                    </div>
-                    <Input
-                      className="whiteballs"
-                      maxLength={2}
-                      minLength={2}
-                      type="text"
-                      value={this.state.no1}
-                      onChange={this.handleInputChange}
-                      name="no1"
-                    />
-                    <Input
-                      className="whiteballs"
-                      maxLength={2}
-                      minLength={2}
-                      type="text"
-                      value={this.state.no2}
-                      onChange={this.handleInputChange}
-                      name="no2"
-                    />
-                    <Input
-                      className="whiteballs"
-                      maxLength={2}
-                      minLength={2}
-                      type="text"
-                      value={this.state.no3}
-                      onChange={this.handleInputChange}
-                      name="no3"
-                    />
-                    <Input
-                      className="whiteballs"
-                      maxLength={2}
-                      minLength={2}
-                      type="text"
-                      value={this.state.no4}
-                      onChange={this.handleInputChange}
-                      name="no4"
-                    />
-                    <Input
-                      className="whiteballs"
-                      maxLength={2}
-                      minLength={2}
-                      type="text"
-                      value={this.state.no5}
-                      onChange={this.handleInputChange}
-                      name="no5"
-                    />
-                    <Input
-                      className="whiteballs powerball-input"
-                      maxLength={2}
-                      minLength={2}
-                      type="text"
-                      value={this.state.powerball}
-                      onChange={this.handleInputChange}
-                      name="powerball"
-                    />
-
-                    <FormBtn
-                      className="saveNo"
-                      disabled={
-                        !(
-                          this.state.gameNo &&
-                          this.state.no1 &&
-                          this.state.no2 &&
-                          this.state.no3 &&
-                          this.state.no4 &&
-                          this.state.no5 &&
-                          this.state.powerball
-                        )
-                      }
-                      onClick={this.handleFormSubmit}
-                    >
-                      Enter
-                    </FormBtn>
-                  </form>
-                  <br></br>
-
-                  <div>
-                    {this.state.numbers.length ? (
-                      <div>
-                        {this.state.numbers
-                          .slice(0)
-                          .reverse()
-                          .map((number) => (
-                            <ListItem
-                              style={{ border: "solid red 2px" }}
-                              key={number._id}
-                            >
-                              <strong style={{ fontFamily: "Quantico" }}>
-                                <h4 style={{ color: "black" }}>
-                                  <b>Game No:</b> {number.gameNo}
-                                  <hr></hr>
-                                  {number.no1} {"-"}
-                                  {number.no2} {"-"}
-                                  {number.no3} {"-"}
-                                  {number.no4} {"-"}
-                                  {number.no5} {"-"}
-                                  <span
-                                    style={{
-                                      backgroundColor: "red",
-                                      color: "white",
-                                      borderRadius: "50%",
-                                      padding: "3px",
-                                      marginTop: "2px",
-                                    }}
-                                  >
-                                    {number.powerball}
-                                  </span>
-                                </h4>
-                                <hr></hr>
-                                <h6>
-                                  <b>Date: </b>
-                                  <Moment format="MM/DD/YYYY, h:mm a">
-                                    {number.date}
-                                  </Moment>
-                                </h6>
-                              </strong>
-
-                              <DeleteBtn
-                                onClick={() => this.deleteNumber(number._id)}
-                              />
-                            </ListItem>
-                          ))}
-                      </div>
-                    ) : (
-                      <h3>Enter Ticket #s</h3>
-                    )}
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-            <Button variant="primary" onClick={this.props.onHide}>
-              Close
-            </Button>
-          </Modal.Body>
-          <Modal.Footer></Modal.Footer>
-        </Modal>
-      </div>
-    );
-  }
+                Don't worry! We don't sell your information. See our Privacy
+                Policy.
+              </h4> */}
+            </form>
+          </div>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
 }

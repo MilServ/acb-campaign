@@ -4,11 +4,14 @@ import Axios from "axios";
 import Button from "@material-ui/core/Button";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
-  root: {
-    width: "auto",
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(2),
+    width: "155px",
+    borderRadius: 20,
+    fontSize: "0.90rem",
   },
-});
+}));
 const ColorButton = withStyles((theme) => ({
   root: {
     color: theme.palette.getContrastText("#bb6125"),
@@ -16,16 +19,10 @@ const ColorButton = withStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#bb6125",
     },
-    margin: {
-      margin: theme.spacing(2),
-      width: "155px",
-      borderRadius: 20,
-      fontSize: "0.90rem",
-    },
   },
 }))(Button);
 
-export default function BuyNowForm(props) {
+export default function SignUpForm(props) {
   const [signupFirstN, setSignupFirstN] = useState("");
   const [signupLastN, setSignupLastN] = useState("");
   const [signupRole, setSignupRole] = useState("");
@@ -38,6 +35,8 @@ export default function BuyNowForm(props) {
   const [signupBizState, setSignupBizState] = useState("");
   const [signupBizZip, setSignupBizZip] = useState("");
   const [signupPhoneNo, setSignupPhoneNo] = useState("");
+
+  const classes = useStyles();
 
   const [show, setShow] = useState(false);
 
@@ -72,10 +71,16 @@ export default function BuyNowForm(props) {
 
   return (
     <>
-      <div variant="primary" onClick={handleShow} style={{ cursor: "pointer" }}>
-        > Read more
-      </div>
-
+      <ColorButton
+        onClick={handleShow}
+        style={{ cursor: "pointer" }}
+        variant="contained"
+        color="primary"
+        id="ctaBtns"
+        className={classes.margin}
+      >
+        Sign-up Now
+      </ColorButton>
       <Modal
         size="lg"
         variant="primary"

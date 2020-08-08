@@ -3,6 +3,8 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Container, Row, Col } from "react-grid-system";
 import "../App.css";
+import SignUpForm from "../components/forms/SignUpModal";
+import BuyNowForm from "../components/forms/BuyNowModal";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -31,14 +33,7 @@ export default function Call2ActionBtns() {
       <Container>
         <Row>
           <Col>
-            <ColorButton
-              variant="contained"
-              color="primary"
-              id="ctaBtns"
-              className={classes.margin}
-            >
-              Sign-up Now
-            </ColorButton>
+            <SignUpForm />
           </Col>
           {/* <Col>
             <ColorButton
@@ -51,14 +46,7 @@ export default function Call2ActionBtns() {
             </ColorButton>
           </Col> */}
           <Col>
-            <ColorButton
-              variant="contained"
-              color="primary"
-              id="ctaBtns"
-              className={classes.margin}
-            >
-              Buy Now
-            </ColorButton>
+            <BuyNowForm />
           </Col>
         </Row>
       </Container>
