@@ -19,7 +19,7 @@ import StoryModal3 from "../components/storyModals/StoryModal3";
 
 function Body() {
   return (
-    <div className="container">
+    <div className="container mb-0">
       <div className="container nySkyline">
         <div className="row text-center">
           {/* dfghjkl;k */}
@@ -169,11 +169,11 @@ function Body() {
             <img src={acbLogo} className="App-logo-2" alt="logo" />
           </Col>
         </Row>
-        <Row className="text-center ctaBtnsRow">
+        {/* <Row className="text-center ctaBtnsRow">
           <Col>
             <Call2ActionBtns />
           </Col>
-        </Row>{" "}
+        </Row>{" "} */}
       </Container>
 
       <Footer />

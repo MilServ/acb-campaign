@@ -78,6 +78,14 @@
   transform: scaleY(1.3);
 }
 
+.footerFont {
+  color: #bb6125;
+  font-size: 1.2rem;
+  font-family: Helvetica, sans-serif;
+  transform: scaleY(1.5);
+  font-weight: 500;
+}
+
 .firstText {
   color: #bb6125;
   font-size: 1.1rem;

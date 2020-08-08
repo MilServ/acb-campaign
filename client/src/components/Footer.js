@@ -2,6 +2,11 @@ import React from "react";
 import { Container, Row, Col } from "react-grid-system";
 import DemoForm from "../components/forms/demo";
 import mayflower from "../images/mayflower.jpg";
+import partner2 from "../images/scantic.jpeg";
+import partner3 from "../images/stoneman.jpeg";
+import partner4 from "../images/acbowlnotext.jpg";
+import partner5 from "../images/vetownedbiz.png";
+import partner6 from "../images/massbrew.png";
 // import Call2ActionBtns from "./Call2ActionBtns";
 import "../App.css";
 
@@ -10,7 +15,10 @@ function Footer() {
     <div>
       <Container
         className="reactGridContainer"
-        style={{ padding: 0, marginBottom: 50 }}
+        style={{
+          padding: 0,
+          borderBottom: "solid #68813c 10px",
+        }}
       >
         <Row
           className="nySkylineFormBg"
@@ -38,37 +46,72 @@ function Footer() {
           className="row text-center"
           style={{
             backgroundColor: "white",
-            height: "95px",
-            paddingTop: 50,
+            height: "15px",
+            paddingTop: 20,
           }}
         >
-          <Col xs={12} s={12} md={2} lg={2}>
-            <b>
-              {" "}
-              <img
-                src={mayflower}
-                className="brewerPartner"
-                alt="mayflower brewing co logo"
-                width="100px"
-              />
-            </b>
+          <Col>
+            <b className="footerFont">OUR BREWER PARTNERS</b>
+          </Col>
+        </Row>
+        <Row
+          className="row text-center"
+          style={{
+            backgroundColor: "white",
+            padding: 30,
+            paddingBottom: 40,
+          }}
+        >
+          <Col xs={3} s={3} md={2} lg={2}>
+            <img
+              src={mayflower}
+              className="brewerPartner"
+              alt="mayflower brewing co logo"
+              width="110px"
+            />
           </Col>
 
-          <Col xs={12} s={12} md={2} lg={2}>
-            <b>Logo 2</b>
+          <Col xs={3} s={3} md={2} lg={2}>
+            <img
+              src={partner2}
+              className="brewerPartner"
+              alt="mayflower brewing co logo"
+              height="110px"
+            />
           </Col>
 
-          <Col xs={12} s={12} md={2} lg={2}>
-            Logo 3
+          <Col xs={3} s={3} md={2} lg={2}>
+            <img
+              src={partner3}
+              className="brewerPartner"
+              alt="mayflower brewing co logo"
+              width="100px"
+            />
           </Col>
-          <Col xs={12} s={12} md={2} lg={2}>
-            Logo 4
+          <Col xs={3} s={3} md={2} lg={2}>
+            <img
+              src={partner4}
+              className="brewerPartner"
+              alt="mayflower brewing co logo"
+              width="110px"
+            />
           </Col>
-          <Col xs={12} s={12} md={2} lg={2}>
-            Logo 5
+          <Col xs={3} s={3} md={2} lg={2}>
+            <img
+              src={partner5}
+              className="brewerPartner"
+              alt="mayflower brewing co logo"
+              width="110px"
+            />
           </Col>
-          <Col xs={12} s={12} md={2} lg={2}>
-            Logo 5
+          <Col xs={3} s={3} md={2} lg={2}>
+            {" "}
+            <img
+              src={partner6}
+              className="brewerPartner"
+              alt="mayflower brewing co logo"
+              width="84px"
+            />
           </Col>
 
           {/* <Col>
