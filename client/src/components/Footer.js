@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-grid-system";
 import DemoForm from "../components/forms/demo";
+import mayflower from "../images/mayflower.jpg";
 // import Call2ActionBtns from "./Call2ActionBtns";
 import "../App.css";
 
@@ -42,7 +43,15 @@ function Footer() {
           }}
         >
           <Col xs={12} s={12} md={2} lg={2}>
-            <b>Logo 1</b>
+            <b>
+              {" "}
+              <img
+                src={mayflower}
+                className="brewerPartner"
+                alt="mayflower brewing co logo"
+                width="100px"
+              />
+            </b>
           </Col>
 
           <Col xs={12} s={12} md={2} lg={2}>

@@ -10,7 +10,9 @@ import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import Call2ActionBtns from "../components/Call2ActionBtns";
-import SignUpModal from "../components/forms/SignUpModal";
+import StoryModal1 from "../components/storyModals/StoryModal1";
+import StoryModal2 from "../components/storyModals/StoryModal2";
+import StoryModal3 from "../components/storyModals/StoryModal3";
 // ACB Colors
 // ACB Green: #68813c
 // ACB Brown: #bb6125
@@ -103,11 +105,8 @@ function Body() {
             <p className="brewerShortStory">
               Mayflower Brewing’s founder, Drew Brosseau, and his small team of
               artisan brewers in Plymouth, Massachusetts have been delighting
-              craft beer
-              <span id="readMore">
-                > Learn more
-                {/* <SignUpModal /> */}
-              </span>
+              craft beer...
+              <StoryModal1 />
             </p>
           </Col>
           <Col xs={12} s={12} md={2} lg={2}>
@@ -118,7 +117,7 @@ function Body() {
             <p className="brewerShortStory">
               Mayflower Brewing’s founder, Drew Brosseau, and his small team of
               artisan brewers in Plymouth, Massachusetts have been delighting
-              craft beer<span id="readMore"> > Learn more</span>
+              craft beer... <StoryModal2 />
             </p>
           </Col>
 
@@ -130,7 +129,7 @@ function Body() {
             <p className="brewerShortStory">
               Mayflower Brewing’s founder, Drew Brosseau, and his small team of
               artisan brewers in Plymouth, Massachusetts have been delighting
-              craft beer<span id="readMore"> > Learn more</span>
+              craft beer... <StoryModal3 />
             </p>
           </Col>
         </Row>
