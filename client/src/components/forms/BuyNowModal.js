@@ -14,10 +14,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 const ColorButton = withStyles((theme) => ({
   root: {
-    color: theme.palette.getContrastText("#bb6125"),
-    backgroundColor: "#bb6125",
+    color: theme.palette.getContrastText("#68813c"),
+    backgroundColor: "#68813c",
+    border: "solid white .90px",
     "&:hover": {
-      backgroundColor: "#bb6125",
+      backgroundColor: "#68813c",
     },
   },
 }))(Button);

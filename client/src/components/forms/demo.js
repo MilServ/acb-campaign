@@ -58,9 +58,13 @@ export default function DemoForm(props) {
       demoPhoneNo,
     };
 
-    Axios.post("/api/leads/demo", formData).then((response) => {
+    Axios.post("/api/demo/demo", formData).then((response) => {
       if (response.data.success) {
-        alert(formData + " Successfully submitted.");
+        alert(
+          "Thank you, " +
+            formData.demoBizName +
+            ". Your request for a demo has been successfully submitted. An American Craft Brands Rep will contact you within 24 business hours to schedule a demo."
+        );
       } else {
         alert("Sorry.  Failed to submit form");
       }

@@ -11,9 +11,6 @@ export default function Call2ActionBtns() {
         <Row>
           <Col>
             <SignUpForm />
-          </Col>
-
-          <Col>
             <BuyNowForm />
           </Col>
         </Row>

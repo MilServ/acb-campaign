@@ -58,7 +58,7 @@ app.use(cors());
 app.use(allowCrossDomain);
 
 //routes middleware
-app.use("/api/leads", require("./routes/leads"));
+app.use("/api/demo", require("./routes/demo"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

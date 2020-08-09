@@ -4,11 +4,15 @@ import DemoForm from "../components/forms/demo";
 import mayflower from "../images/mayflower.jpg";
 import partner2 from "../images/scantic.jpeg";
 import partner3 from "../images/stoneman.jpeg";
-import partner4 from "../images/acbowlnotext.jpg";
-import partner5 from "../images/vetownedbiz.png";
-import partner6 from "../images/massbrew.png";
+import partner4 from "../components/acblogo.jpg";
+import partner5 from "../images/massbrew.png";
+import ReactPlayer from "react-player";
+
+import { SocialIcon } from "react-social-icons";
+import vid from "../images/vid.mp4";
 // import Call2ActionBtns from "./Call2ActionBtns";
 import "../App.css";
+import Call2ActionBtns from "./Call2ActionBtns";
 
 function Footer() {
   return (
@@ -24,21 +28,34 @@ function Footer() {
           className="nySkylineFormBg"
           style={{ marginTop: 50, height: "auto" }}
         >
-          {/* <Col xs={12} s={12} md={6} lg={6}> */}
-          {/* <div style={{ marginTop: 300 }}>
-              <Call2ActionBtns />
-            </div> */}
-          {/* </Col> */}
-
-          <Col xs={12} s={12} md={6} lg={6}>
-            <div
+          <Col
+            style={{ textAlign: "center", justifyContent: "center" }}
+            xs={12}
+            s={12}
+            md={6}
+            lg={6}
+          >
+            <ReactPlayer
+              className="react-player text-center"
               style={{
-                width: "100%",
+                marginLeft: 50,
+                marginTop: 50,
+                marginRight: 50,
                 height: "100%",
               }}
-            >
-              <DemoForm />
+              url={vid}
+              // src={vid}
+              width="80%"
+              height="auto"
+              controls={true}
+            />
+            <div>
+              <Call2ActionBtns />
             </div>
+          </Col>
+
+          <Col xs={12} s={12} md={6} lg={6}>
+            <DemoForm />
           </Col>
         </Row>
 
@@ -46,11 +63,11 @@ function Footer() {
           className="row text-center"
           style={{
             backgroundColor: "white",
-            height: "15px",
-            paddingTop: 20,
+
+            padding: 15,
           }}
         >
-          <Col>
+          <Col xs={12} s={12} md={8} lg={8}>
             <b className="footerFont">OUR BREWER PARTNERS</b>
           </Col>
         </Row>
@@ -58,53 +75,82 @@ function Footer() {
           className="row text-center"
           style={{
             backgroundColor: "white",
-            padding: 30,
-            paddingBottom: 40,
+            padding: 10,
+            paddingBottom: 10,
           }}
         >
-          <Col xs={3} s={3} md={2} lg={2}>
+          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
             <img
               src={mayflower}
-              className="brewerPartner"
-              alt="mayflower brewing co logo"
-              width="110px"
-            />
-          </Col>
-
-          <Col xs={3} s={3} md={2} lg={2}>
-            <img
-              src={partner2}
-              className="brewerPartner"
-              alt="mayflower brewing co logo"
-              height="110px"
-            />
-          </Col>
-
-          <Col xs={3} s={3} md={2} lg={2}>
-            <img
-              src={partner3}
               className="brewerPartner"
               alt="mayflower brewing co logo"
               width="100px"
             />
           </Col>
-          <Col xs={3} s={3} md={2} lg={2}>
+
+          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
             <img
-              src={partner4}
+              src={partner2}
               className="brewerPartner"
               alt="mayflower brewing co logo"
-              width="110px"
+              height="100px"
             />
           </Col>
-          <Col xs={3} s={3} md={2} lg={2}>
+
+          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
+            <img
+              src={partner3}
+              className="brewerPartner"
+              alt="mayflower brewing co logo"
+              width="90px"
+            />
+          </Col>
+          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
             <img
               src={partner5}
               className="brewerPartner"
               alt="mayflower brewing co logo"
-              width="110px"
+              width="80px"
+              style={{ borderRadius: 9 }}
             />
           </Col>
-          <Col xs={3} s={3} md={2} lg={2}>
+          <Col
+            style={{
+              justifyContent: "center",
+              textAlign: "center",
+              borderLeft: "solid #68813c 1px",
+            }}
+            xs={1}
+            s={1}
+            md={2}
+            lg={2}
+          >
+            <img
+              src={partner4}
+              className="brewerPartner text-center"
+              alt="mayflower brewing co logo"
+              width="130px"
+            />
+          </Col>
+          <Col style={{ width: "80%" }} xs={1} s={1} md={2} lg={2}>
+            <div style={{ display: "block" }}>
+              <SocialIcon
+                style={{ margin: 3 }}
+                url="https://www.linkedin.com/company/ninkasitechnologies/"
+              />
+
+              <SocialIcon
+                style={{ margin: 3 }}
+                url="https://www.facebook.com/americancraftbrands/"
+              />
+
+              <SocialIcon
+                style={{ margin: 3 }}
+                url="https://twitter.com/amercraftbrands"
+              />
+            </div>
+          </Col>
+          {/* <Col xs={3} s={3} md={2} lg={2}>
             {" "}
             <img
               src={partner6}
@@ -112,7 +158,7 @@ function Footer() {
               alt="mayflower brewing co logo"
               width="84px"
             />
-          </Col>
+          </Col> */}
 
           {/* <Col>
             <b>Contact</b>

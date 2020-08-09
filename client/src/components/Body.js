@@ -162,7 +162,7 @@ function Body() {
             className="App-header text-center"
             style={{
               maxHeight: "150px",
-              paddingTop: "28px",
+
               paddingBottom: "10px",
             }}
           >
