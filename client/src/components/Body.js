@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import { Container, Row, Col } from "react-grid-system";
 import OwlCards from "../components/OwlCards";
+import owl from "../images/acbowlnotext.jpg";
 import kegs from "../images/kegs.jpg";
 import partner1 from "../images/butternuts.jpeg";
 import beerServer from "../images/beerserver.jpg";
@@ -17,7 +18,7 @@ import StoryModal1 from "../components/storyModals/StoryModal1";
 import StoryModal2 from "../components/storyModals/StoryModal2";
 import StoryModal3 from "../components/storyModals/StoryModal3";
 // ACB Colors
-// ACB Green: #68813c
+// ACB Green: #68813c , rgba(104, 129, 60, 0.75)
 // ACB Brown: #bb6125
 
 function Body() {
@@ -94,8 +95,18 @@ function Body() {
           </Col>
         </Row>
 
-        <Row className="text-center">
+        <Row
+          className="text-center"
+          style={{ marginTop: 50, marginBottom: 100 }}
+        >
           <Col>
+            <img src={owl} alt="ACB logo without text" width="40%" />
+            <span
+              style={{ color: "#bb6125", display: "block", fontSize: "1.5rem" }}
+            >
+              <b>AmericanCraftBrands.com</b>
+            </span>
+
             <Call2ActionBtns />
           </Col>
         </Row>
@@ -155,7 +166,7 @@ function Body() {
         </Row>
 
         <Row
-          style={{ marginBottom: 70, justifyContent: "normal" }}
+          style={{ marginBottom: 40, justifyContent: "normal" }}
           className="text-center"
         >
           <Col
@@ -166,7 +177,7 @@ function Body() {
             xlg={4}
             style={{
               maxHeight: "50px",
-              paddingTop: "50px",
+              paddingTop: "24px",
               paddingBottom: "10px",
               textAlign: "center",
             }}
@@ -176,25 +187,23 @@ function Body() {
             </div>
           </Col>
         </Row>
-        <Row
-          align="center"
-          className="text-center center bottomOwlRow"
-          style={{ paddingTop: 40 }}
-        >
-          <Col
-            xs={12}
-            s={12}
-            md={12}
-            lg={12}
-            xlg={12}
-            className="App-header text-center"
-            style={{
-              maxHeight: "150px",
-
-              paddingBottom: "10px",
-            }}
-          >
-            <img src={acbLogo} className="App-logo-2" alt="logo" />
+        <Row align="center" className="bottomOwlRow" style={{ paddingTop: 28 }}>
+          <Col xs={12} s={12} md={12} lg={12} xlg={12}>
+            <p
+              style={{
+                color: "white",
+                backgroundColor: "#68813c",
+                padding: 30,
+                borderRadius: 8,
+              }}
+            >
+              All these great products and the ones still to come are available
+              for ordering and retailer delivery via
+              www.AmericanCraftBrands.com. Consumers can find them at selected
+              bars, restaurants, and off- premise accounts for pick-up or home
+              delivery. Ask for them by name or email the brewer the name and
+              address of your favorite retailer and we will take it from there.
+            </p>
           </Col>
         </Row>
         {/* <Row className="text-center ctaBtnsRow">

@@ -48,7 +48,7 @@ export default function OwlCards() {
               >
                 <CardContent>
                   <Typography variant="h5" component="h2" className="owlCards">
-                    Easy & Fast <br></br>5 minutes to install
+                    Easy & Fast <br></br>5 minutes to install.
                   </Typography>
                 </CardContent>
               </Card>

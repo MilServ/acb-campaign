@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import lithology from "../../images/lithology.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -39,9 +41,6 @@ export default function StoryModal1(props) {
         centered
         style={{ "max-height": "calc(100vh - 5px)", overflowY: "auto" }}
         show={show}
-        onHide={handleClose}
-        closeButton
-        onClick={handleClose}
       >
         {/* <Modal.Header style={{ backgroundColor: "red" }}>
           <Modal.Title>Signup Now</Modal.Title>
@@ -49,6 +48,17 @@ export default function StoryModal1(props) {
         <Modal.Body>
           {" "}
           <div className="container" style={{ padding: "20px" }}>
+            <div className="row">
+              <div className="col-md-1">
+                <FontAwesomeIcon
+                  icon={faTimesCircle}
+                  onHide={handleClose}
+                  closeButton
+                  onClick={handleClose}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            </div>
             <div className="row text-center">
               <img
                 src={lithology}

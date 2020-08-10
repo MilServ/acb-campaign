@@ -4,7 +4,7 @@ import DemoForm from "../components/forms/demo";
 import partner1 from "../images/butternuts.jpeg";
 import partner2 from "../images/lithology.png";
 import partner3 from "../images/redshed.jpg";
-import partner4 from "../components/acblogo.jpg";
+import acbOwlNoText from "../images/acbowlnotext.jpg";
 import partner5 from "../images/massbrew.png";
 import ReactPlayer from "react-player";
 
@@ -118,21 +118,45 @@ function Footer() {
             style={{
               justifyContent: "center",
               textAlign: "center",
+              marginTop: 0,
+              paddingTop: 0,
               borderLeft: "solid #68813c 1px",
             }}
-            xs={1}
-            s={1}
+            xs={12}
+            s={12}
             md={2}
             lg={2}
           >
             <img
-              src={partner4}
+              src={acbOwlNoText}
               className="brewerPartner text-center"
-              alt="mayflower brewing co logo"
-              width="130px"
+              alt="American Craft Brands logo"
+              width="110px"
             />
+            <span
+              style={{
+                color: "#bb6125",
+                display: "block",
+                fontSize: "0.85rem",
+                paddingTop: 0,
+                marginTop: 0,
+                marginBottom: 8,
+              }}
+            >
+              <b>AmericanCraftBrands.com</b>
+            </span>
           </Col>
-          <Col style={{ width: "80%" }} xs={1} s={1} md={2} lg={2}>
+          <Col
+            className="text-center"
+            style={{
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+            xs={12}
+            s={12}
+            md={2}
+            lg={2}
+          >
             <div style={{ display: "block" }}>
               <SocialIcon
                 style={{ margin: 3 }}
