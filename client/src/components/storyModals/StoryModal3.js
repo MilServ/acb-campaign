@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
-import mayflower from "../../images/mayflower.jpg";
+import redshed from "../../images/redshed.jpg";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -51,7 +51,7 @@ export default function StoryModal1(props) {
           <div className="container" style={{ padding: "20px" }}>
             <div className="row text-center">
               <img
-                src={mayflower}
+                src={redshed}
                 className="brewerPartner"
                 alt="mayflower brewing co logo"
                 width="100px"
@@ -60,31 +60,37 @@ export default function StoryModal1(props) {
             <div
               className="row justify-content-center"
               style={{
-                backgroundColor: "whitesmoke",
-                padding: "50px",
+                backgroundColor: "#68813c",
+                borderRadius: 10,
+                padding: "40px",
                 height: "600px",
+                color: "whitesmoke",
+                fontWeight: 300,
               }}
             >
               <div className="col-md-8">
-                <p>
+                <p id="modal-text">
                   {" "}
-                  Mayflower Brewing’s founder, Drew Brosseau, and his small team
-                  of artisan brewers in Plymouth, Massachusetts have been
-                  delighting craft beer drinkers throughout New England with
-                  unique and note-worthy tastes for several years.
+                  Red Shed Brewing, of Cooperstown and Cherry Valley NY, has
+                  been delighting baseball fans and vacationers to central NY
+                  with hand-crafted beers using only local ingredients since
+                  2017[?]. Their Red Shed brand includes 2019 NY State Silver
+                  Medal winner – Jessica’s Red Ale. A customer favorite.
                 </p>
-                <p>
+                <p id="modal-text">
                   {" "}
-                  Mayflower received gold, silver and bronze awards and was
-                  named Massachusetts Brewery of the year at the 2019 New York
-                  beer competition.
+                  Their H. Clausen &amp; Son Series is a homage to the history
+                  of this region of NY and the classic beer recipes H. Clausen
+                  produced in the 1800’s and early 1900s as the 9 th largest
+                  brewery in the country before prohibition.
                 </p>
-                <p>
+                <p id="modal-text">
                   {" "}
-                  Mayflower’s entire portfolio of ‘core’ products
-                  (www.mayflowerbrewing.com) have been approved for sale and the
-                  New World IPA, Boomerang and OttoBahn are available via the
-                  American Craft Brands platform.
+                  Jack Hasbrouck, owner of Red Shed will initially only be
+                  listing the Red Shed line on AmericanCraftBrands.com but we
+                  hope to convince him to share the limited-edition H. Clausen
+                  &amp; Son Series with those ‘down-state’ in the near future.
+                  The website is www.redshedbrewery.com.
                 </p>
               </div>
             </div>

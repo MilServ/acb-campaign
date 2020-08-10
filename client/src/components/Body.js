@@ -3,7 +3,10 @@ import "../App.css";
 import { Container, Row, Col } from "react-grid-system";
 import OwlCards from "../components/OwlCards";
 import kegs from "../images/kegs.jpg";
+import partner1 from "../images/butternuts.jpeg";
 import beerServer from "../images/beerserver.jpg";
+import partner2 from "../images/lithology.png";
+import partner3 from "../images/redshed.jpg";
 import acbApp from "../images/acbapp.png";
 import acbLogo from "./acblogo.jpg";
 import Footer from "./Footer";
@@ -30,11 +33,14 @@ function Body() {
           {/* </div> */}
         </div>
         <div className="row text-center">
-          <div className="col-md-6">
+          <div
+            className="col-md-6 headline-col"
+            style={{ paddingLeft: "2.6rem", paddingRight: "2.6rem" }}
+          >
             <b id="introducing">
-              Introducing the beverage purchasing platform that
-              <br id="displayNone"></br> puts New York on and off-premise
-              retailers in control.
+              Introducing <span id="acbHeadline">AmericanCraftBrands.com</span>,
+              the beverage purchasing <br id="displayNone"></br>platform that
+              puts New York on and off-premise retailers in control.
             </b>
           </div>
         </div>
@@ -87,6 +93,13 @@ function Body() {
             <OwlCards />
           </Col>
         </Row>
+
+        <Row className="text-center">
+          <Col>
+            <Call2ActionBtns />
+          </Col>
+        </Row>
+
         <Row className="popularCraftRow">
           <Col>
             <b className="first">
@@ -95,54 +108,65 @@ function Body() {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} s={12} md={2} lg={2}>
+          <Col xs={12} s={12} md={2} lg={2} style={{ paddingTop: 10 }}>
             {" "}
-            <img src={beerServer} className="brewerPics" alt="beer server" />
+            <img
+              src={partner1}
+              className="brewerPics"
+              alt="Butternuts Beer and Ale"
+            />
           </Col>
 
           <Col xs={12} s={12} md={2} lg={2}>
-            <b className="brewerTitle">Acme Beer Co.</b>
+            <b className="brewerTitle">Butternuts Beer and Ale</b>
             <p className="brewerShortStory">
-              Mayflower Brewing’s founder, Drew Brosseau, and his small team of
-              artisan brewers in Plymouth, Massachusetts have been delighting
-              craft beer...
+              Butternuts founder, Chuck Williamson, and his small team of
+              professional artisan brewers in Garrattsville, NY have been ...
               <StoryModal1 />
             </p>
           </Col>
           <Col xs={12} s={12} md={2} lg={2}>
-            <img src={beerServer} className="brewerPics" alt="beer server" />
+            <img
+              src={partner2}
+              className="brewerPics"
+              alt="lithology beer company staff"
+            />
           </Col>
           <Col xs={12} s={12} md={2} lg={2}>
-            <b className="brewerTitle">Brewer 2</b>
+            <b className="brewerTitle">Lithology Brewing Company</b>
             <p className="brewerShortStory">
-              Mayflower Brewing’s founder, Drew Brosseau, and his small team of
-              artisan brewers in Plymouth, Massachusetts have been delighting
-              craft beer... <StoryModal2 />
+              Lithology Brewing, of Farmingdale, is a boutique brewer started by
+              4 tech/science guys to produce...
+              <StoryModal2 />
             </p>
           </Col>
 
           <Col xs={12} s={12} md={2} lg={2}>
-            <img src={beerServer} className="brewerPics" alt="beer server" />
+            <img src={partner3} className="brewerPics" alt="beer server" />
           </Col>
           <Col xs={12} s={12} md={2} lg={2}>
-            <b className="brewerTitle">Brewer 3</b>
+            <b className="brewerTitle">Red Shed Brewing Company</b>
             <p className="brewerShortStory">
-              Mayflower Brewing’s founder, Drew Brosseau, and his small team of
-              artisan brewers in Plymouth, Massachusetts have been delighting
-              craft beer... <StoryModal3 />
+              Red Shed Brewing, of Cooperstown and Cherry Valley NY, has been
+              delighting baseball fans and...
+              <StoryModal3 />
             </p>
           </Col>
         </Row>
-        <Row style={{ marginBottom: 70 }} className="text-center">
+
+        <Row
+          style={{ marginBottom: 70, justifyContent: "normal" }}
+          className="text-center"
+        >
           <Col
             xs={8}
             s={8}
-            md={3}
-            lg={3}
-            xlg={3}
+            md={4}
+            lg={4}
+            xlg={4}
             style={{
               maxHeight: "50px",
-              paddingTop: "15px",
+              paddingTop: "50px",
               paddingBottom: "10px",
               textAlign: "center",
             }}
@@ -152,7 +176,11 @@ function Body() {
             </div>
           </Col>
         </Row>
-        <Row align="center" className="text-center center bottomOwlRow">
+        <Row
+          align="center"
+          className="text-center center bottomOwlRow"
+          style={{ paddingTop: 40 }}
+        >
           <Col
             xs={12}
             s={12}

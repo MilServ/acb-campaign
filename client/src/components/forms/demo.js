@@ -40,7 +40,7 @@ export default function DemoForm(props) {
   const [demoBizCity, setDemoBizCity] = useState("");
   const [demoBizState, setDemoBizState] = useState("");
   const [demoBizZip, setDemoBizZip] = useState("");
-  const [demoPhoneNo, setDemoPhoneNo] = useState("");
+  // const [demoPhoneNo, setDemoPhoneNo] = useState("");
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -55,10 +55,10 @@ export default function DemoForm(props) {
       demoBizCity,
       demoBizState,
       demoBizZip,
-      demoPhoneNo,
+      // demoPhoneNo,
     };
 
-    Axios.post("/api/demo/demo", formData).then((response) => {
+    Axios.post("api/demo/demo", formData).then((response) => {
       if (response.data.success) {
         alert(
           "Thank you, " +

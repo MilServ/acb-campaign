@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
-import mayflower from "../../images/mayflower.jpg";
+import lithology from "../../images/lithology.png";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -51,40 +51,58 @@ export default function StoryModal1(props) {
           <div className="container" style={{ padding: "20px" }}>
             <div className="row text-center">
               <img
-                src={mayflower}
+                src={lithology}
                 className="brewerPartner"
-                alt="mayflower brewing co logo"
+                alt="Lithology Brewing Co"
                 width="100px"
               />
             </div>
             <div
               className="row justify-content-center"
               style={{
-                backgroundColor: "whitesmoke",
-                padding: "50px",
+                backgroundColor: "#68813c",
+                borderRadius: 10,
+                padding: "40px",
                 height: "600px",
+                color: "whitesmoke",
+                fontWeight: 300,
               }}
             >
               <div className="col-md-8">
-                <p>
+                <p id="modal-text">
                   {" "}
-                  Mayflower Brewing’s founder, Drew Brosseau, and his small team
-                  of artisan brewers in Plymouth, Massachusetts have been
-                  delighting craft beer drinkers throughout New England with
-                  unique and note-worthy tastes for several years.
+                  Lithology Brewing, of Farmingdale, is a boutique brewer
+                  started by 4 tech / science guys to produce
+                  professionally-crafted artisan beers.
                 </p>
-                <p>
-                  {" "}
-                  Mayflower received gold, silver and bronze awards and was
-                  named Massachusetts Brewery of the year at the 2019 New York
-                  beer competition.
+
+                <p id="modal-text">
+                  They start with ingredients from artisan growers and extend
+                  that focus on quality all the way through the brewing process
+                  – and it shows.
                 </p>
-                <p>
-                  {" "}
-                  Mayflower’s entire portfolio of ‘core’ products
-                  (www.mayflowerbrewing.com) have been approved for sale and the
-                  New World IPA, Boomerang and OttoBahn are available via the
-                  American Craft Brands platform.
+
+                <p id="modal-text">
+                  They have won awards for their Sunrise Summer Ale and their
+                  Brown Ale. They have also twice been named ‘Brewery of the
+                  Year’ in their category.
+                </p>
+
+                <p id="modal-text">
+                  Until now, Lithology’s products have only been available at
+                  the brewery and in local retailers. They now want to bring
+                  their products to all of the NY Metro area – and share the
+                  comfort of knowing that professionally brews come in all
+                  shapes and sizes.
+                </p>
+
+                <p id="modal-text">
+                  It’s the ingredients and the people who assemble and nurture
+                  them that makes a great beer. The website is
+                  <a href="http://www.lithologybrewing.com" target="_blank">
+                    {" "}
+                    www.lithologybrewing.com.
+                  </a>
                 </p>
               </div>
             </div>

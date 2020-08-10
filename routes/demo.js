@@ -12,6 +12,7 @@ router.post("/demo", (req, res) => {
   });
 });
 
+module.exports = router;
 // Commenting out all code that will be used for Version 2
 
 // const {
@@ -42,5 +43,3 @@ router.post("/demo", (req, res) => {
 
 // router.delete("/veteran_file", requireSignin, adminMiddleware, remove);
 // router.put("/veteran_file", requireSignin, adminMiddleware, update);
-
-module.exports = router;

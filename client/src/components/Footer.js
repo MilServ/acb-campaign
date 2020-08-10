@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-grid-system";
 import DemoForm from "../components/forms/demo";
-import mayflower from "../images/mayflower.jpg";
-import partner2 from "../images/scantic.jpeg";
-import partner3 from "../images/stoneman.jpeg";
+import partner1 from "../images/butternuts.jpeg";
+import partner2 from "../images/lithology.png";
+import partner3 from "../images/redshed.jpg";
 import partner4 from "../components/acblogo.jpg";
 import partner5 from "../images/massbrew.png";
 import ReactPlayer from "react-player";
@@ -81,7 +81,7 @@ function Footer() {
         >
           <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
             <img
-              src={mayflower}
+              src={partner1}
               className="brewerPartner"
               alt="mayflower brewing co logo"
               width="100px"

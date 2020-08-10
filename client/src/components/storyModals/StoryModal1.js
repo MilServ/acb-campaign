@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
-import mayflower from "../../images/mayflower.jpg";
+import partner1 from "../../images/butternuts.jpeg";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -51,40 +51,53 @@ export default function StoryModal1(props) {
           <div className="container" style={{ padding: "20px" }}>
             <div className="row text-center">
               <img
-                src={mayflower}
+                src={partner1}
                 className="brewerPartner"
-                alt="mayflower brewing co logo"
+                alt="Butternuts Beer and Ale logo"
                 width="100px"
               />
             </div>
             <div
               className="row justify-content-center"
               style={{
-                backgroundColor: "whitesmoke",
-                padding: "50px",
+                backgroundColor: "#68813c",
+                borderRadius: 10,
+                padding: "40px",
                 height: "600px",
+                color: "whitesmoke",
+                fontWeight: 300,
               }}
             >
               <div className="col-md-8">
-                <p>
+                <p id="modal-text">
                   {" "}
-                  Mayflower Brewing’s founder, Drew Brosseau, and his small team
-                  of artisan brewers in Plymouth, Massachusetts have been
-                  delighting craft beer drinkers throughout New England with
-                  unique and note-worthy tastes for several years.
+                  Butternuts Beer and Ale founder, Chuck Williamson, and his
+                  small team of professional artisan brewers in Garrattsville,
+                  New York have been delighting craft beer drinkers throughout
+                  the Northeast US with tried- and-true, unique, and note-worthy
+                  brews since 2007.
                 </p>
-                <p>
+                <p id="modal-text">
                   {" "}
-                  Mayflower received gold, silver and bronze awards and was
-                  named Massachusetts Brewery of the year at the 2019 New York
-                  beer competition.
+                  Chuck started in the industry making and selling other folk’s
+                  beer in Brooklyn during the late 90s but decided he’d give
+                  country life and country brewing a go.
                 </p>
-                <p>
+                <p id="modal-text">
                   {" "}
-                  Mayflower’s entire portfolio of ‘core’ products
-                  (www.mayflowerbrewing.com) have been approved for sale and the
-                  New World IPA, Boomerang and OttoBahn are available via the
-                  American Craft Brands platform.
+                  Success followed him to his converted dairy barn brewery in
+                  Garrattsville with such hit country beers as Porkslap, Moo
+                  Thunder, and a variety of other interesting tastes – which are
+                  available across 7 states.
+                </p>
+
+                <p id="modal-text">
+                  Chuck is now introducing a new brand called Burning Banjo in
+                  honor of country folk and those with their heart in the
+                  country at this difficult time. Visit their website at{" "}
+                  <a href="http://www.butternutsbeer.com" target="_blank">
+                    www.butternutsbeer.com.
+                  </a>
                 </p>
               </div>
             </div>
