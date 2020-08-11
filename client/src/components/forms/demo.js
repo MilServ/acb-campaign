@@ -1,11 +1,8 @@
-import React, { useState, PropTypes } from "react";
-// import { API } from "../../utils/API";
+import React from "react";
 import Axios from "axios";
 import Button from "@material-ui/core/Button";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-
-// import { withRouter } from "next/router";
-// import Router from "next/router";
+import { useFormik } from "formik";
 
 const useStyles = makeStyles({
   root: {
@@ -30,53 +27,93 @@ const ColorButton = withStyles((theme) => ({
 
 export default function DemoForm(props) {
   const classes = useStyles();
-  const [demoFirstN, setDemoFirstN] = useState("");
-  const [demoLastN, setDemoLastN] = useState("");
-  const [demoEmail, setDemoEmail] = useState("");
-  const [demoLicState, setDemoLicState] = useState("");
-  const [demoStateLicNo, setDemoStateLicNo] = useState("");
-  const [demoBizName, setDemoBizName] = useState("");
-  const [demoBizStreet, setDemoBizStreet] = useState("");
-  const [demoBizCity, setDemoBizCity] = useState("");
-  const [demoBizState, setDemoBizState] = useState("");
-  const [demoBizZip, setDemoBizZip] = useState("");
-  // const [demoPhoneNo, setDemoPhoneNo] = useState("");
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const formData = {
-      demoLastN,
-      demoFirstN,
-      demoEmail,
-      demoLicState,
-      demoStateLicNo,
-      demoBizName,
-      demoBizStreet,
-      demoBizCity,
-      demoBizState,
-      demoBizZip,
-      // demoPhoneNo,
-    };
+  function validate(values) {
+    const errors = {};
+    if (!values.demoFirstN) {
+      errors.demoFirstN = "Required field";
+    }
 
-    Axios.post("api/demo/demo", formData).then((response) => {
-      if (response.data.success) {
-        alert(
-          "Thank you, " +
-            formData.demoBizName +
-            ". Your request for a demo has been successfully submitted. An American Craft Brands Rep will contact you within 24 business hours to schedule a demo."
-        );
-      } else {
-        alert("Sorry.  Failed to submit form");
-      }
-    });
-  };
+    if (!values.demoLastN) {
+      errors.demoLastN = "Required field";
+    }
+
+    if (!values.demoBizState) {
+      errors.demoBizState = "Required field";
+    }
+    if (!values.demoBizName) {
+      errors.demoBizName = "Required field";
+    }
+    if (!values.demoBizStreet) {
+      errors.demoBizStreet = "Required field";
+    }
+    if (!values.demoBizCity) {
+      errors.demoBizCity = "Required field";
+    }
+    if (!values.demoEmail) {
+      errors.demoEmail = "Required field";
+    }
+    if (!values.demoPhoneNo) {
+      errors.demoPhoneNo = "Required field";
+    }
+
+    return errors;
+  }
+
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    touched,
+    values, // use this if you want controlled components
+    errors,
+  } = useFormik({
+    initialValues: {
+      demoLastN: "",
+      demoFirstN: "",
+      demoEmail: "",
+      demoStateLicNo: "",
+      demoBizName: "",
+      demoBizStreet: "",
+      demoBizCity: "",
+      demoBizState: "",
+      demoBizZip: "",
+      demoPhoneNo: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values));
+      // values = {"favoriteFood":"ramen","favoritePlace":"mountains"}
+
+      Axios.post("api/demo/demo", values)
+        .then((response) => {
+          if (response.data.success) {
+            alert(
+              "Thank you, " +
+                values.demoBizName +
+                ". Your request for a demo has been successfully submitted. An American Craft Brands Rep will contact you within 24 business hours to schedule a demo."
+            );
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log("Line 100" + error.response.data); // => the response payload
+            alert(
+              "Sorry, " +
+                values.demoBizName +
+                ". Looks like we received a similar request already.  Please try a different email address"
+            );
+          }
+        });
+    },
+  });
 
   return (
     <div
       className="container"
       style={{ backgroundColor: "rgba(0,0,0,0.75", padding: "50px" }}
     >
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         {/* <div className="container"> */}
         <div className="row">
           <div className="col-md-12">
@@ -133,13 +170,16 @@ export default function DemoForm(props) {
                   marginLeft: 2,
                   marginRight: 3,
                 }}
-                value={demoFirstN}
-                onChange={(e) => setDemoFirstN(e.target.value)}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="First name"
                 type="text"
-                name="firstName"
+                name="demoFirstN"
                 required
               />
+              {touched.demoFirstN && errors.demoFirstN ? (
+                <div className="validatorText">{errors.demoFirstN}</div>
+              ) : null}
 
               <input
                 style={{
@@ -148,13 +188,16 @@ export default function DemoForm(props) {
                   height: 30,
                   width: "40%",
                 }}
-                value={demoLastN}
-                onChange={(e) => setDemoLastN(e.target.value)}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Last name"
                 type="text"
-                name="lastName"
+                name="demoLastN"
                 required
               />
+              {touched.demoLastN && errors.demoLastN ? (
+                <div className="validatorText">{errors.demoLastN}</div>
+              ) : null}
             </div>
           </div>
 
@@ -167,15 +210,53 @@ export default function DemoForm(props) {
                   marginLeft: 2,
                   height: 30,
                   marginTop: 8,
-                  width: "82%",
+                  width: "50%",
                 }}
-                value={demoEmail}
-                onChange={(e) => setDemoEmail(e.target.value)}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Email address"
                 type="email"
-                name="email"
+                name="demoEmail"
                 required
               />
+              {touched.demoEmail && errors.demoEmail ? (
+                <div className="validatorText">{errors.demoEmail}</div>
+              ) : null}
+            </div>
+            <div className="col-md-12">
+              <div className="col-md-2 mb-2">
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    marginLeft: 2,
+                    height: 30,
+                    marginTop: 8,
+                    width: "50%",
+                  }}
+                  type="tel"
+                  id="phone"
+                  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder="Phone Number"
+                  type="text"
+                  name="demoPhoneNo"
+                />
+                {touched.demoPhoneNo && errors.demoPhoneNo ? (
+                  <div className="validatorText">{errors.demoPhoneNo}</div>
+                ) : null}
+                <small
+                  style={{
+                    fontWeight: "500",
+                    fontSize: ".75rem",
+                    color: "white",
+                    margin: 5,
+                  }}
+                >
+                  Format: "212-555-2678"{" "}
+                </small>
+              </div>
             </div>
             <br></br>
           </div>
@@ -200,13 +281,16 @@ export default function DemoForm(props) {
               height: 30,
               width: "81%",
             }}
-            value={demoBizName}
-            onChange={(e) => setDemoBizName(e.target.value)}
+            onChange={handleChange}
+            onBlur={handleBlur}
             placeholder="Business Name"
             type="text"
-            name="Business Name"
+            name="demoBizName"
             required
           />
+          {touched.demoBizName && errors.demoBizName ? (
+            <div className="validatorText">{errors.demoBizName}</div>
+          ) : null}
           <br></br>
           <input
             style={{
@@ -216,26 +300,18 @@ export default function DemoForm(props) {
               height: 30,
               width: "81%",
             }}
-            value={demoBizStreet}
-            onChange={(e) => setDemoBizStreet(e.target.value)}
-            placeholder="Business Street Address"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Street Address"
             type="text"
-            name="Business Street Address"
+            name="demoBizStreet"
             required
           />
+          {touched.demoBizStreet && errors.demoBizStreet ? (
+            <div className="validatorText">{errors.demoBizStreet}</div>
+          ) : null}
         </div>
         <div>
-          {/* <label
-            style={{
-              marginTop: "20px",
-              marginRight: 3,
-              color: "black",
-              fontWeight: "600",
-              fontSize: ".90rem",
-            }}
-          >
-            Select Military Affiliation{" "}
-          </label> */}
           <input
             style={{
               border: "solid #383838 .75px",
@@ -244,13 +320,16 @@ export default function DemoForm(props) {
               height: 30,
               width: "40.5%",
             }}
-            value={demoBizCity}
-            onChange={(e) => setDemoBizCity(e.target.value)}
-            placeholder="Business City"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="City"
             type="text"
-            name="Business City"
+            name="demoBizCity"
             required
           />
+          {touched.demoBizCity && errors.demoBizCity ? (
+            <div className="validatorText">{errors.demoBizCity}</div>
+          ) : null}
           <input
             style={{
               border: "solid #383838 .75px",
@@ -259,13 +338,16 @@ export default function DemoForm(props) {
               height: 30,
               width: "10%",
             }}
-            value={demoBizState}
-            onChange={(e) => setDemoBizState(e.target.value)}
+            onChange={handleChange}
+            onBlur={handleBlur}
             placeholder="State"
             type="text"
-            name="Business State"
+            name="demoBizState"
             required
           />
+          {touched.demoBizState && errors.demoBizState ? (
+            <div className="validatorText">{errors.demoBizState}</div>
+          ) : null}
           <input
             style={{
               border: "solid #383838 .75px",
@@ -274,28 +356,12 @@ export default function DemoForm(props) {
               height: 30,
               width: "23%",
             }}
-            value={demoBizZip}
-            onChange={(e) => setDemoBizZip(e.target.value)}
+            onChange={handleChange}
+            onBlur={handleBlur}
             placeholder="Zip Code"
             type="text"
-            name="Company Zip Code"
+            name="demoBizZip"
             // required
-          />
-
-          <input
-            style={{
-              border: "solid #383838 .75px",
-              borderRadius: 5,
-              margin: 5,
-              height: 30,
-              width: "28%",
-            }}
-            value={demoLicState}
-            onChange={(e) => setDemoLicState(e.target.value)}
-            placeholder="Business Lic. State"
-            type="text"
-            name="Business License State"
-            required
           />
           <input
             style={{
@@ -305,12 +371,11 @@ export default function DemoForm(props) {
               height: 30,
               width: "50%",
             }}
-            value={demoStateLicNo}
-            onChange={(e) => setDemoStateLicNo(e.target.value)}
-            placeholder="Business License #"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="NY SLA License Number"
             type="text"
-            name="Business Lic. No"
-            required
+            name="demoStateLicNo"
           />
         </div>
 
@@ -321,7 +386,7 @@ export default function DemoForm(props) {
           color="primary"
           style={{ margin: 20, borderRadius: 20 }}
           id="ctaBtns"
-          onClick={onSubmit}
+          type="submit"
           className={classes.margin}
         >
           SCHEDULE DEMO

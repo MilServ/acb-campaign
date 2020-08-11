@@ -53,6 +53,13 @@
   padding-top: 110px;
 }
 
+.validatorText {
+  font-weight: 300 !important;
+  margin: 1px !important;
+  font-size: xx-small !important;
+  color: red;
+}
+
 #introducing {
   font-size: 1.65rem;
   color: whitesmoke;
