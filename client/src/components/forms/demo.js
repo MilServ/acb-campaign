@@ -52,7 +52,12 @@ export default function DemoForm(props) {
     }
     if (!values.demoEmail) {
       errors.demoEmail = "Required field";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.demoEmail)
+    ) {
+      errors.demoEmail = "Invalid email address";
     }
+
     if (!values.demoPhoneNo) {
       errors.demoPhoneNo = "Required field";
     }
@@ -60,53 +65,53 @@ export default function DemoForm(props) {
     return errors;
   }
 
-  const {
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    touched,
-    values, // use this if you want controlled components
-    errors,
-  } = useFormik({
-    initialValues: {
-      demoLastN: "",
-      demoFirstN: "",
-      demoEmail: "",
-      demoStateLicNo: "",
-      demoBizName: "",
-      demoBizStreet: "",
-      demoBizCity: "",
-      demoBizState: "",
-      demoBizZip: "",
-      demoPhoneNo: "",
-    },
-    validate,
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values));
-      // values = {"favoriteFood":"ramen","favoritePlace":"mountains"}
+  const { handleSubmit, handleChange, handleBlur, touched, errors } = useFormik(
+    {
+      initialValues: {
+        demoLastN: "",
+        demoFirstN: "",
+        demoEmail: "",
+        demoStateLicNo: "",
+        demoBizName: "",
+        demoBizStreet: "",
+        demoBizCity: "",
+        demoBizState: "",
+        demoBizZip: "",
+        demoPhoneNo: "",
+      },
+      validate,
+      onSubmit: (values) => {
+        // console.log(JSON.stringify(values));
 
-      Axios.post("api/demo/demo", values)
-        .then((response) => {
-          if (response.data.success) {
-            alert(
-              "Thank you, " +
-                values.demoBizName +
-                ". Your request for a demo has been successfully submitted. An American Craft Brands Rep will contact you within 24 business hours to schedule a demo."
-            );
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log("Line 100" + error.response.data); // => the response payload
-            alert(
-              "Sorry, " +
-                values.demoBizName +
-                ". Looks like we received a similar request already.  Please try a different email address"
-            );
-          }
-        });
-    },
-  });
+        Axios.post("api/demo/demo", values)
+          .then((response) => {
+            if (response.data.success) {
+              alert(
+                "Thank you, " +
+                  values.demoBizName +
+                  ". Your request for a demo has been submitted. An American Craft Brands Rep will contact you within 24 business hours for scheduling."
+              );
+              window.location.reload();
+            }
+          })
+
+          .catch((error) => {
+            if (error.response) {
+              console.log("Line 100" + error.response.data); // => the response payload
+              alert(
+                "Sorry, " +
+                  values.demoBizName +
+                  ". Looks like we received a similar request already.  Please try a different email address"
+              );
+            }
+          });
+      },
+    }
+  );
+
+  // const handleReset = () => {
+  //   resetForm();
+  // };
 
   return (
     <div
@@ -236,11 +241,10 @@ export default function DemoForm(props) {
                   }}
                   type="tel"
                   id="phone"
-                  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Phone Number"
-                  type="text"
                   name="demoPhoneNo"
                 />
                 {touched.demoPhoneNo && errors.demoPhoneNo ? (
@@ -387,6 +391,7 @@ export default function DemoForm(props) {
           style={{ margin: 20, borderRadius: 20 }}
           id="ctaBtns"
           type="submit"
+          // onClick={handleReset}
           className={classes.margin}
         >
           SCHEDULE DEMO
