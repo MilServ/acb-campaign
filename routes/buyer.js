@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { create } = require("../controllers/demo");
+const { create } = require("../controllers/buyer");
 
 // This route is for Veterans to submit info form without login
-router.post("/demo", create);
+router.post("/buyer", create);
 
 module.exports = router;

@@ -39,7 +39,7 @@ export default function StoryModal1(props) {
         variant="primary"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        style={{ "max-height": "calc(100vh - 5px)", overflowY: "auto" }}
+        style={{ maxHeight: "calc(100vh - 5px)", overflowY: "auto" }}
         show={show}
       >
         <Modal.Body>
@@ -50,7 +50,7 @@ export default function StoryModal1(props) {
                 <FontAwesomeIcon
                   icon={faTimesCircle}
                   onHide={handleClose}
-                  closeButton
+                  closebutton
                   onClick={handleClose}
                   style={{ cursor: "pointer" }}
                 />
@@ -98,6 +98,7 @@ export default function StoryModal1(props) {
                   hope to convince him to share the limited-edition H. Clausen
                   &amp; Son Series with those ‘down-state’ in the near future.
                   The website is www.redshedbrewery.com.
+                  {/* for <a> tag rel="noopener noreferrer" */}
                 </p>
               </div>
             </div>

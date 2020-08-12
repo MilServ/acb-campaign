@@ -21,22 +21,20 @@ const signUpsSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
-    unique: true,
     lowercase: true,
   },
   signupLicState: {
-    type: Array,
+    type: String,
+    trim: true,
     required: true,
+    lowercase: true,
   },
   signupBizType: {
-    type: Array,
+    type: Number,
+    default: 0,
     required: true,
   },
-  signupLicTypes: {
-    type: Array,
-    required: true,
-  },
-  signupStateLicNo: {
+  signupLicNo: {
     type: String,
     trim: true,
   },
@@ -59,11 +57,6 @@ const signUpsSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  signupBizState: {
-    type: String,
-    trim: true,
-    required: true,
-  },
   signupBizZip: {
     type: String,
     trim: true,
@@ -76,4 +69,4 @@ const signUpsSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Signups", signUpsSchema);
+module.exports = mongoose.model("signups", signUpsSchema);

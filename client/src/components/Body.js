@@ -9,7 +9,6 @@ import beerServer from "../images/beerserver.jpg";
 import partner2 from "../images/lithology.png";
 import partner3 from "../images/redshed.jpg";
 import acbApp from "../images/acbapp.png";
-import acbLogo from "./acblogo.jpg";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";

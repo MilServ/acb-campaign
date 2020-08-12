@@ -39,7 +39,7 @@ export default function StoryModal1(props) {
         variant="primary"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        style={{ "max-height": "calc(100vh - 5px)", overflowY: "auto" }}
+        style={{ maxHeight: "calc(100vh - 5px)", overflowY: "auto" }}
         show={show}
       >
         <Modal.Body>
@@ -50,7 +50,7 @@ export default function StoryModal1(props) {
                 <FontAwesomeIcon
                   icon={faTimesCircle}
                   onHide={handleClose}
-                  closeButton
+                  closebutton
                   onClick={handleClose}
                   style={{ cursor: "pointer" }}
                 />
@@ -102,7 +102,11 @@ export default function StoryModal1(props) {
                   Chuck is now introducing a new brand called Burning Banjo in
                   honor of country folk and those with their heart in the
                   country at this difficult time. Visit their website at{" "}
-                  <a href="http://www.butternutsbeer.com" target="_blank">
+                  <a
+                    href="http://www.butternutsbeer.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     www.butternutsbeer.com.
                   </a>
                 </p>

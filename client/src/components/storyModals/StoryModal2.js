@@ -39,7 +39,7 @@ export default function StoryModal1(props) {
         variant="primary"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        style={{ "max-height": "calc(100vh - 5px)", overflowY: "auto" }}
+        style={{ maxHeight: "calc(100vh - 5px)", overflowY: "auto" }}
         show={show}
       >
         {/* <Modal.Header style={{ backgroundColor: "red" }}>
@@ -53,7 +53,7 @@ export default function StoryModal1(props) {
                 <FontAwesomeIcon
                   icon={faTimesCircle}
                   onHide={handleClose}
-                  closeButton
+                  closebutton
                   onClick={handleClose}
                   style={{ cursor: "pointer" }}
                 />
@@ -109,7 +109,11 @@ export default function StoryModal1(props) {
                 <p id="modal-text">
                   It’s the ingredients and the people who assemble and nurture
                   them that makes a great beer. The website is
-                  <a href="http://www.lithologybrewing.com" target="_blank">
+                  <a
+                    href="http://www.lithologybrewing.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {" "}
                     www.lithologybrewing.com.
                   </a>
