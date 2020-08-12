@@ -1,39 +1,67 @@
 const mongoose = require("mongoose");
 
-const retailerSchema = new mongoose.Schema({
-  retLastName: {
+const buyersSchema = new mongoose.Schema({
+  buyerLastN: {
     type: String,
     trim: true,
     required: true,
     max: 32,
   },
-  retFirstName: {
+  buyerFirstN: {
     type: String,
     trim: true,
     required: true,
     max: 32,
   },
-  retEmail: {
+  buyerRole: {
+    type: String,
+    trim: true,
+  },
+  buyerEmail: {
     type: String,
     trim: true,
     required: true,
-    unique: true,
     lowercase: true,
   },
-  licState: {
-    type: Array,
-    required: true,
-  },
-  stateLicNo: {
-    type: String,
-    trim: true,
-  },
-  coName: {
+  buyerLicState: {
     type: String,
     trim: true,
     required: true,
+    lowercase: true,
   },
-  retPhoneNumber: {
+  buyerBizType: {
+    type: Number,
+    default: 0,
+    required: true,
+  },
+  buyerLicNo: {
+    type: String,
+    trim: true,
+  },
+  buyerBizName: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  buyerLegalBizName: {
+    type: String,
+    trim: true,
+  },
+  buyerBizSt: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  buyerBizCity: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  buyerBizZip: {
+    type: String,
+    trim: true,
+  },
+  buyerPhoneNo: {
     type: String,
     pattern: "^([0-9]{3}-[0-9]{3}-[0-9]{4}$",
   },
@@ -41,4 +69,4 @@ const retailerSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Retailer", retailerSchema);
+module.exports = mongoose.model("buyers", buyersSchema);

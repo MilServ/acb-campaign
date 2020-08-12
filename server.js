@@ -17,13 +17,6 @@ const allowCrossDomain = (req, res, next) => {
   }
 };
 
-//Routes to be used in future versions
-// const authRoutes = require("./routes/auth");
-// const userRoutes = require("./routes/user");
-// const signupsRoutes = require("./routes/signups");
-// const buyersRoutes = require("./routes/buyers");
-// const demoRoutes = require("./routes/demo");
-
 const app = express();
 
 //Bodyparser Middleware

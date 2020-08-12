@@ -31,6 +31,14 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
+const bizType = [
+  { key: 0, value: "Select Business Type" },
+  { key: 1, value: "Retailer" },
+  { key: 2, value: "Maker" },
+  { key: 3, value: "Distributor" },
+  { key: 4, value: "Importer" },
+];
+
 export default function BuyNowForm(props) {
   const classes = useStyles();
 
@@ -44,14 +52,14 @@ export default function BuyNowForm(props) {
       errors.buyerLastN = "Required field";
     }
 
-    if (!values.buyerBizState) {
-      errors.buyerBizState = "Required field";
+    if (!values.buyerLicState) {
+      errors.buyerLicState = "Required field";
     }
     if (!values.buyerBizName) {
       errors.buyerBizName = "Required field";
     }
-    if (!values.buyerBizStreet) {
-      errors.buyerBizStreet = "Required field";
+    if (!values.buyerBizSt) {
+      errors.buyerBizSt = "Required field";
     }
     if (!values.buyerBizCity) {
       errors.buyerBizCity = "Required field";
@@ -76,14 +84,17 @@ export default function BuyNowForm(props) {
       initialValues: {
         buyerLastN: "",
         buyerFirstN: "",
+        buyerRole: "",
         buyerEmail: "",
-        buyerStateLicNo: "",
+        buyerLicNo: "",
         buyerBizName: "",
-        buyerBizStreet: "",
+        buyerBizSt: "",
         buyerBizCity: "",
-        buyerBizState: "",
+        buyerLicState: "",
         buyerBizZip: "",
         buyerPhoneNo: "",
+        buyerLegalBizName: "",
+        buyerBizType: 0,
       },
       validate,
       onSubmit: (values) => {
@@ -107,7 +118,7 @@ export default function BuyNowForm(props) {
               alert(
                 "Sorry, " +
                   values.buyerBizName +
-                  ". Looks like we received a similar request already.  Please try a different email address"
+                  ". Looks like something went wrong.  Please try a different email address"
               );
             }
           });
@@ -132,6 +143,7 @@ export default function BuyNowForm(props) {
       >
         BUY NOW
       </ColorButton>
+
       <Modal
         size="lg"
         variant="primary"
@@ -172,7 +184,7 @@ export default function BuyNowForm(props) {
                   </h2>
                 </div>
               </div>
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-md-12">
                   <h4
                     style={{
@@ -181,11 +193,10 @@ export default function BuyNowForm(props) {
                       fontSize: ".90rem",
                     }}
                   >
-                    To expedite processing, please take a picture of your NY SLA
-                    License and email it to sales@americancraftbrands.com.
+                    Message here
                   </h4>
                 </div>
-              </div>
+              </div> */}
               <hr></hr>
               <div>
                 <div className="row left text-left">
@@ -203,7 +214,7 @@ export default function BuyNowForm(props) {
                   </div>
                 </div>
                 <div className="row pt-2" style={{ marginTop: "8px" }}>
-                  <div className="col-md-12 pt-2">
+                  <div className="col-md-6 col-sm-12 col-xs-12 pt-2">
                     <input
                       style={{
                         height: 30,
@@ -245,7 +256,7 @@ export default function BuyNowForm(props) {
                 </div>
 
                 <div className="row">
-                  <div className="col-md-12">
+                  <div className="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <input
                       style={{
                         border: "solid #383838 .75px",
@@ -264,6 +275,27 @@ export default function BuyNowForm(props) {
                     />
                     {touched.buyerEmail && errors.buyerEmail ? (
                       <div className="validatorText">{errors.buyerEmail}</div>
+                    ) : null}
+                  </div>
+                  <div className="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                    <input
+                      style={{
+                        border: "solid #383838 .75px",
+                        borderRadius: 5,
+                        marginLeft: 2,
+                        height: 30,
+                        marginTop: 8,
+                        width: "50%",
+                      }}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      placeholder="Your Business Role"
+                      type="text"
+                      name="buyerRole"
+                      required
+                    />
+                    {touched.buyerRole && errors.buyerRole ? (
+                      <div className="validatorText">{errors.buyerRole}</div>
                     ) : null}
                   </div>
                   <div className="col-md-12">
@@ -317,6 +349,24 @@ export default function BuyNowForm(props) {
                   Business Information{" "}
                 </label>
                 <br></br>
+                <select
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "81%",
+                  }}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  name="buyerBizType"
+                >
+                  {bizType.map((item) => (
+                    <option key={item.key} value={item.key}>
+                      {item.value}{" "}
+                    </option>
+                  ))}
+                </select>
                 <input
                   style={{
                     border: "solid #383838 .75px",
@@ -346,13 +396,29 @@ export default function BuyNowForm(props) {
                   }}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  placeholder="Legal Business Name (if applicable)"
+                  type="text"
+                  name="buyerLegalBizName"
+                />
+
+                <br></br>
+                <input
+                  style={{
+                    border: "solid #383838 .75px",
+                    borderRadius: 5,
+                    margin: 5,
+                    height: 30,
+                    width: "81%",
+                  }}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="Street Address"
                   type="text"
-                  name="buyerBizStreet"
+                  name="buyerBizSt"
                   required
                 />
-                {touched.buyerBizStreet && errors.buyerBizStreet ? (
-                  <div className="validatorText">{errors.buyerBizStreet}</div>
+                {touched.buyerBizSt && errors.buyerBizSt ? (
+                  <div className="validatorText">{errors.buyerBizSt}</div>
                 ) : null}
               </div>
               <div>
@@ -386,11 +452,11 @@ export default function BuyNowForm(props) {
                   onBlur={handleBlur}
                   placeholder="State"
                   type="text"
-                  name="buyerBizState"
+                  name="buyerLicState"
                   required
                 />
-                {touched.buyerBizState && errors.buyerBizState ? (
-                  <div className="validatorText">{errors.buyerBizState}</div>
+                {touched.buyerLicState && errors.buyerLicState ? (
+                  <div className="validatorText">{errors.buyerLicState}</div>
                 ) : null}
                 <input
                   style={{
@@ -419,8 +485,13 @@ export default function BuyNowForm(props) {
                   onBlur={handleBlur}
                   placeholder="NY SLA License Number"
                   type="text"
-                  name="buyerStateLicNo"
+                  name="buyerLicNo"
                 />
+                <br />
+                <small style={{ color: "white" }}>
+                  To expedite processing, please take a picture of your NY SLA
+                  License and email it to <b>sales@americancraftbrands.com</b>.
+                </small>
               </div>
 
               <br></br>
@@ -428,9 +499,13 @@ export default function BuyNowForm(props) {
               <ColorButton
                 variant="contained"
                 color="primary"
-                style={{ margin: 20, borderRadius: 20 }}
                 id="ctaBtns"
                 type="submit"
+                style={{
+                  backgroundColor: "#bb6125",
+                  margin: 20,
+                  borderRadius: 20,
+                }}
                 // onClick={handleReset}
                 className={classes.margin}
               >

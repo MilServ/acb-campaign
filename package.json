@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "Initializing repo for ACB's F2K campaign",
   "main": "server.js",
+  "engine": {
+    "node": "12.17.0",
+    "npm": "6.13.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "backend": "nodemon server.js",
+    "frontend": "npm run front --prefix client",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,7 +33,12 @@
     "express": "^4.17.1",
     "is-empty": "^1.2.0",
     "mongoose": "^5.9.27",
+    "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.19.1"
   }
 }

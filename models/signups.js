@@ -69,4 +69,4 @@ const signUpsSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("signups", signUpsSchema);
+module.exports = mongoose.model("Signups", signUpsSchema);
