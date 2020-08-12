@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Initializing repo for ACB's F2K campaign",
   "main": "server.js",
-  "engine": {
+  "engines": {
     "node": "12.x",
     "npm": "6.x"
   },
