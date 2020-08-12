@@ -109,14 +109,7 @@ export default function StoryModal1(props) {
                 <p id="modal-text">
                   It’s the ingredients and the people who assemble and nurture
                   them that makes a great beer. The website is
-                  <a
-                    href="http://www.lithologybrewing.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {" "}
-                    www.lithologybrewing.com.
-                  </a>
+                  www.lithologybrewing.com.
                 </p>
               </div>
             </div>

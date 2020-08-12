@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  overflow-x: hidden !important;
+}
+
 .App-logo {
   height: 18vmin;
   pointer-events: none;
@@ -208,7 +212,7 @@
 @media (max-width: 770px) {
   #first2Know {
     font-size: 3.5rem;
-    padding-top: 90px;
+    padding-top: 75px;
   }
 
   .headline-col {
@@ -227,6 +231,25 @@
   .brewerPics {
     width: 70%;
   } */
+}
+
+@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  #first2Know {
+    font-size: 2.5rem;
+    padding-top: 50px;
+  }
+  #introducing {
+    font-size: 1rem;
+  }
+  .App-logo {
+    height: 14vmin;
+  }
+  .App-header {
+    height: 55px;
+  }
+  .topBar {
+    height: 50px;
+  }
 }
 
 @media (min-width: 85.375em) {

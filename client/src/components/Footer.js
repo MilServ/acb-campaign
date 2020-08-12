@@ -54,7 +54,7 @@ function Footer() {
             </div>
           </Col>
 
-          <Col xs={12} s={12} md={6} lg={6}>
+          <Col xs={12} s={12} md={6} lg={6} style={{ padding: 0 }}>
             <DemoForm />
           </Col>
         </Row>

@@ -205,11 +205,6 @@ function Body() {
             </p>
           </Col>
         </Row>
-        {/* <Row className="text-center ctaBtnsRow">
-          <Col>
-            <Call2ActionBtns />
-          </Col>
-        </Row>{" "} */}
       </Container>
 
       <Footer />
