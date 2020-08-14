@@ -46,7 +46,7 @@ function Body() {
         </div>
       </div>
 
-      <Container style={{ paddingTop: "20px", marginTop: "10px" }}>
+      <Container style={{ paddingTop: "20px", marginTop: 30 }}>
         <Row className="text-center">
           <Col xs={12} s={12} md={4} lg={4}>
             <b className="first">FIRST</b>

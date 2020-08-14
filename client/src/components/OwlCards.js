@@ -30,7 +30,7 @@ export default function OwlCards() {
     <div className="text-center">
       <Container align="center" style={{ margin: "50px" }}>
         <Row align="center" className="text-center">
-          <Col xs={12} s={12} md={4} lg={4} style={{ paddingBottom: 15 }}>
+          <Col xs={12} s={12} md={12} lg={4} style={{ paddingBottom: 15 }}>
             {" "}
             <div style={{ position: "relative" }}>
               <div
@@ -55,7 +55,7 @@ export default function OwlCards() {
             </div>
           </Col>
 
-          <Col xs={12} s={12} md={4} lg={4} style={{ paddingBottom: 15 }}>
+          <Col xs={12} s={12} md={12} lg={4} style={{ paddingBottom: 15 }}>
             <div style={{ position: "relative" }}>
               <div
                 style={{
@@ -79,7 +79,7 @@ export default function OwlCards() {
               </Card>
             </div>
           </Col>
-          <Col xs={12} s={12} md={4} lg={4} style={{ paddingBottom: 15 }}>
+          <Col xs={12} s={12} md={12} lg={4} style={{ paddingBottom: 15 }}>
             <div style={{ position: "relative" }}>
               <div
                 style={{
