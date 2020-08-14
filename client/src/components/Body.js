@@ -24,7 +24,7 @@ function Body() {
   return (
     <div className="container mb-0">
       <div className="container nySkyline">
-        <div className="row text-center">
+        <div className="row text-center first2Know">
           {/* dfghjkl;k */}
           {/* <div className="col-md-6" style={{ paddingTop: "5px" }}> */}
           <h1 id="first2Know">
@@ -46,7 +46,7 @@ function Body() {
         </div>
       </div>
 
-      <Container style={{ paddingTop: "20px", marginTop: 30 }}>
+      <Container style={{ paddingTop: "20px", marginTop: 20 }}>
         <Row className="text-center">
           <Col xs={12} s={12} md={4} lg={4}>
             <b className="first">FIRST</b>

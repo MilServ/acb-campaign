@@ -67,6 +67,7 @@ body {
 #introducing {
   font-size: 1.65rem;
   color: whitesmoke;
+  scale: 1;
 }
 
 .text-center {
@@ -212,18 +213,20 @@ body {
 @media (max-width: 770px) {
   #first2Know {
     font-size: 2.8rem;
-    padding-top: 55px;
-  }
-
-  .headline-col {
-    padding-left: 0;
-    padding-right: 0;
+    padding-top: 64px;
   }
 
   #introducing {
-    font-size: 1.02rem;
-    margin-bottom: 10px;
+    font-size: 1.05rem;
+    line-height: 1.6 !important;
+    font-stretch: extra-condensed !important;
+    font-weight: bolder !important;
+    font-style: italic;
   }
+
+  /* .first2Know {
+    margin-bottom: 1rem;
+  } */
 
   #displayNone {
     display: none;
