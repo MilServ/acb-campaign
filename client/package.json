@@ -20,6 +20,7 @@
     "react-grid-system": "^7.0.3",
     "react-modal": "^3.11.2",
     "react-modal-bootstrap": "^1.1.1",
+    "react-phone-number-input": "^3.0.25",
     "react-player": "^2.6.0",
     "react-scripts": "3.4.1",
     "react-social-icons": "^4.1.0"

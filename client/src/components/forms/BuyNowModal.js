@@ -156,7 +156,7 @@ export default function BuyNowForm(props) {
           {" "}
           <div
             className="container"
-            style={{ backgroundColor: "#68813c", padding: "50px" }}
+            style={{ backgroundColor: "#bb6125", padding: "50px" }}
           >
             <div className="row">
               <div className="col-md-1">
@@ -298,8 +298,19 @@ export default function BuyNowForm(props) {
                       <div className="validatorText">{errors.buyerRole}</div>
                     ) : null}
                   </div>
-                  <div className="col-md-12">
+                  <div className="col-md-12" style={{ marginTop: 10 }}>
                     <div className="col-md-2 mb-2">
+                      <label
+                        style={{
+                          color: "whitesmoke",
+                          fontWeight: "500",
+                          fontSize: ".80rem",
+                          marginBottom: 1,
+                          display: "block",
+                        }}
+                      >
+                        Business Phone Number{" "}
+                      </label>
                       <input
                         style={{
                           border: "solid #383838 .75px",
@@ -311,15 +322,16 @@ export default function BuyNowForm(props) {
                         }}
                         type="tel"
                         id="phone"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        maxLength="11"
+                        pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        placeholder="Phone Number"
-                        name="buyerPhoneNo"
+                        placeholder="(Area Code) & Phone Number"
+                        name="demoPhoneNo"
                       />
-                      {touched.buyerPhoneNo && errors.buyerPhoneNo ? (
+                      {touched.demoPhoneNo && errors.demoPhoneNo ? (
                         <div className="validatorText">
-                          {errors.buyerPhoneNo}
+                          {errors.demoPhoneNo}
                         </div>
                       ) : null}
                       <small
@@ -330,14 +342,13 @@ export default function BuyNowForm(props) {
                           margin: 5,
                         }}
                       >
-                        Format: "212-555-2678"{" "}
+                        Example: <em> 212 555 2678</em>
                       </small>
                     </div>
                   </div>
                   <br></br>
                 </div>
               </div>
-
               <div>
                 <label
                   style={{

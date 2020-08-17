@@ -300,8 +300,19 @@ export default function SignUpForm(props) {
                       <div className="validatorText">{errors.signupRole}</div>
                     ) : null}
                   </div>
-                  <div className="col-md-12">
+                  <div className="col-md-12" style={{ marginTop: 10 }}>
                     <div className="col-md-2 mb-2">
+                      <label
+                        style={{
+                          color: "whitesmoke",
+                          fontWeight: "500",
+                          fontSize: ".80rem",
+                          marginBottom: 1,
+                          display: "block",
+                        }}
+                      >
+                        Business Phone Number{" "}
+                      </label>
                       <input
                         style={{
                           border: "solid #383838 .75px",
@@ -313,15 +324,16 @@ export default function SignUpForm(props) {
                         }}
                         type="tel"
                         id="phone"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        maxLength="11"
+                        pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        placeholder="Phone Number"
-                        name="signupPhoneNo"
+                        placeholder="(Area Code) & Phone Number"
+                        name="demoPhoneNo"
                       />
-                      {touched.signupPhoneNo && errors.signupPhoneNo ? (
+                      {touched.demoPhoneNo && errors.demoPhoneNo ? (
                         <div className="validatorText">
-                          {errors.signupPhoneNo}
+                          {errors.demoPhoneNo}
                         </div>
                       ) : null}
                       <small
@@ -332,7 +344,7 @@ export default function SignUpForm(props) {
                           margin: 5,
                         }}
                       >
-                        Format: "212-555-2678"{" "}
+                        Example: <em> 212 555 2678</em>
                       </small>
                     </div>
                   </div>

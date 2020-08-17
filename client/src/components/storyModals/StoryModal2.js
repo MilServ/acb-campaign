@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import lithology from "../../images/lithology.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { noAuto } from "@fortawesome/fontawesome-svg-core";
 
 const customStyles = {
   content: {
@@ -11,6 +12,9 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
+    marginTop: 10,
+    marginBottom: 8,
+    overflow: "auto",
     color: "white",
     backgroundColor: "rgba(104,129,60,.85)",
     transform: "translate(-50%, -50%)",
@@ -56,21 +60,20 @@ export default function StoryModal1(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <FontAwesomeIcon
-          icon={faTimesCircle}
-          onClick={closeModal}
-          style={{ cursor: "pointer" }}
-        />
-
         <div className="text-center">
           <img
             src={lithology}
             className="brewerPartner"
             alt="Butternuts Beer and Ale logo"
             width="100px"
-            style={{ borderRadius: "10%" }}
+            style={{ borderRadius: "5%" }}
           />
         </div>
+        <FontAwesomeIcon
+          icon={faTimesCircle}
+          onClick={closeModal}
+          style={{ cursor: "pointer" }}
+        />
         <p id="modal-text">
           {" "}
           Lithology Brewing, of Farmingdale, is a boutique brewer started by 4

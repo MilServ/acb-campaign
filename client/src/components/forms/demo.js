@@ -228,8 +228,19 @@ export default function DemoForm(props) {
                 <div className="validatorText">{errors.demoEmail}</div>
               ) : null}
             </div>
-            <div className="col-md-12">
+            <div className="col-md-12" style={{ marginTop: 10 }}>
               <div className="col-md-2 mb-2">
+                <label
+                  style={{
+                    color: "whitesmoke",
+                    fontWeight: "500",
+                    fontSize: ".80rem",
+                    marginBottom: 1,
+                    display: "block",
+                  }}
+                >
+                  Business Phone Number{" "}
+                </label>
                 <input
                   style={{
                     border: "solid #383838 .75px",
@@ -241,10 +252,11 @@ export default function DemoForm(props) {
                   }}
                   type="tel"
                   id="phone"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  maxLength="11"
+                  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder="Phone Number"
+                  placeholder="(Area Code) & Phone Number"
                   name="demoPhoneNo"
                 />
                 {touched.demoPhoneNo && errors.demoPhoneNo ? (
@@ -258,7 +270,7 @@ export default function DemoForm(props) {
                     margin: 5,
                   }}
                 >
-                  Format: "212-555-2678"{" "}
+                  Example: <em> 212 555 2678</em>
                 </small>
               </div>
             </div>

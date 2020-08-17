@@ -196,7 +196,11 @@ function Body() {
             </div>
           </Col>
         </Row>
-        <Row align="center" className="bottomOwlRow" style={{ paddingTop: 28 }}>
+        <Row
+          align="center"
+          className="bottomOwlRow text-center"
+          style={{ paddingTop: 28 }}
+        >
           <Col xs={12} s={12} md={12} lg={12} xlg={12}>
             <p
               style={{
@@ -206,12 +210,12 @@ function Body() {
                 borderRadius: 8,
               }}
             >
-              All these great products and the ones still to come are available
-              for ordering and retailer delivery via
-              www.AmericanCraftBrands.com. Consumers can find them at selected
-              bars, restaurants, and off- premise accounts for pick-up or home
-              delivery. Ask for them by name or email the brewer the name and
-              address of your favorite retailer and we will take it from there.
+              <em>
+                All these great products and the ones still to come are
+                available for ordering and retailer delivery via{" "}
+                <b> www.AmericanCraftBrands.com</b>
+              </em>
+              .
             </p>
           </Col>
         </Row>

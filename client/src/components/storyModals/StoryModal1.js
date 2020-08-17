@@ -57,11 +57,6 @@ export default function StoryModal1(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <FontAwesomeIcon
-          icon={faTimesCircle}
-          onClick={closeModal}
-          style={{ cursor: "pointer" }}
-        />
         <div className="text-center">
           <img
             src={partner1}
@@ -71,6 +66,11 @@ export default function StoryModal1(props) {
             style={{ borderRadius: "10%" }}
           />
         </div>
+        <FontAwesomeIcon
+          icon={faTimesCircle}
+          onClick={closeModal}
+          style={{ cursor: "pointer" }}
+        />
         <p id="modal-text">
           {" "}
           Butternuts Beer and Ale founder, Chuck Williamson, and his small team
