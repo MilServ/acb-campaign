@@ -118,7 +118,13 @@ function Body() {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} s={12} md={2} lg={2} style={{ paddingTop: 10 }}>
+          <Col
+            xs={7}
+            s={7}
+            md={2}
+            lg={2}
+            style={{ paddingTop: 10, margin: "0 auto" }}
+          >
             {" "}
             <img
               src={partner1}
@@ -135,7 +141,7 @@ function Body() {
               <StoryModal1 />
             </p>
           </Col>
-          <Col xs={12} s={12} md={2} lg={2}>
+          <Col xs={7} s={7} md={2} lg={2} style={{ margin: "0 auto" }}>
             <img
               src={partner2}
               className="brewerPics"
@@ -151,8 +157,12 @@ function Body() {
             </p>
           </Col>
 
-          <Col xs={12} s={12} md={2} lg={2}>
-            <img src={partner3} className="brewerPics" alt="beer server" />
+          <Col xs={7} s={7} md={2} lg={2} style={{ margin: "0 auto" }}>
+            <img
+              src={partner3}
+              className="brewerPics text-center"
+              alt="beer server"
+            />
           </Col>
           <Col xs={12} s={12} md={2} lg={2}>
             <b className="brewerTitle">Red Shed Brewing Company</b>
