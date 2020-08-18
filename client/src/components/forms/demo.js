@@ -30,6 +30,8 @@ export default function DemoForm(props) {
 
   function validate(values) {
     const errors = {};
+    values.demoPhoneNo = values.phoneA + values.phoneB + values.phoneC;
+
     if (!values.demoFirstN) {
       errors.demoFirstN = "Required field";
     }
@@ -56,6 +58,16 @@ export default function DemoForm(props) {
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.demoEmail)
     ) {
       errors.demoEmail = "Invalid email address";
+    }
+
+    if (!values.phoneA) {
+      errors.phoneA = "Required field";
+    }
+    if (!values.phoneB) {
+      errors.phoneB = "Required field";
+    }
+    if (!values.phoneC) {
+      errors.phoneC = "Required field";
     }
 
     if (!values.demoPhoneNo) {
@@ -241,37 +253,69 @@ export default function DemoForm(props) {
                 >
                   Business Phone Number{" "}
                 </label>
-                <input
-                  style={{
-                    border: "solid #383838 .75px",
-                    borderRadius: 5,
-                    marginLeft: 2,
-                    height: 30,
-                    marginTop: 8,
-                    width: "50%",
-                  }}
-                  type="tel"
-                  id="phone"
-                  maxLength="11"
-                  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="(Area Code) & Phone Number"
-                  name="demoPhoneNo"
-                />
-                {touched.demoPhoneNo && errors.demoPhoneNo ? (
-                  <div className="validatorText">{errors.demoPhoneNo}</div>
-                ) : null}
-                <small
-                  style={{
-                    fontWeight: "500",
-                    fontSize: ".75rem",
-                    color: "white",
-                    margin: 5,
-                  }}
-                >
-                  Example: <em> 212 555 2678</em>
-                </small>
+                <div style={{ display: "inline" }}>
+                  <input
+                    style={{
+                      border: "solid #383838 .75px",
+                      borderRadius: 5,
+                      marginLeft: 2,
+                      height: 30,
+                      marginTop: 8,
+                      width: "8%",
+                      paddingLeft: 2,
+                      display: "inline",
+                    }}
+                    type="tel"
+                    maxLength="3"
+                    pattern="[0-9]{3}"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="phoneA"
+                  />
+                  {touched.phoneA && errors.phoneA ? (
+                    <div className="validatorText">{errors.phoneA}</div>
+                  ) : null}
+                  <input
+                    style={{
+                      border: "solid #383838 .75px",
+                      borderRadius: 5,
+                      marginLeft: 2,
+                      height: 30,
+                      marginTop: 8,
+                      width: "8%",
+                      display: "inline",
+                    }}
+                    type="tel"
+                    maxLength="3"
+                    pattern="[0-9]{3}"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="phoneB"
+                  />
+                  {touched.phoneB && errors.phoneB ? (
+                    <div className="validatorText">{errors.phoneB}</div>
+                  ) : null}
+                  <input
+                    style={{
+                      border: "solid #383838 .75px",
+                      borderRadius: 5,
+                      marginLeft: 2,
+                      height: 30,
+                      marginTop: 8,
+                      width: "10%",
+                      display: "inline",
+                    }}
+                    type="tel"
+                    maxLength="4"
+                    pattern="[0-9]{4}"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="phoneC"
+                  />
+                  {touched.phoneC && errors.phoneC ? (
+                    <div className="validatorText">{errors.phoneC}</div>
+                  ) : null}
+                </div>
               </div>
             </div>
             <br></br>

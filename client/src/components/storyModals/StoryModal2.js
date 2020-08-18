@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import lithology from "../../images/lithology.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import { noAuto } from "@fortawesome/fontawesome-svg-core";
 
 const customStyles = {
   content: {
