@@ -13,7 +13,8 @@ const customStyles = {
     marginRight: "-50%",
     marginTop: 10,
     marginBottom: 8,
-    overflow: "auto",
+    overflowY: "scroll",
+    maxHeight: "calc(100vh - 5px)",
     color: "white",
     backgroundColor: "rgba(104,129,60,.85)",
     transform: "translate(-50%, -50%)",
@@ -57,6 +58,7 @@ export default function StoryModal1(props) {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
+        ariaHideApp={false}
         contentLabel="Example Modal"
       >
         <div className="text-center">
