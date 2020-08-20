@@ -26,17 +26,31 @@ function Footer() {
           style={{ marginTop: 50, height: "auto" }}
         >
           <Col
-            style={{ textAlign: "center", justifyContent: "center" }}
+            style={{
+              textAlign: "center",
+              justifyContent: "center",
+              paddingTop: 40,
+              paddingBottom: 30,
+            }}
             xs={12}
             s={12}
             md={6}
             lg={6}
           >
+            <h2>
+              <b
+                style={{
+                  color: "whitesmoke",
+                }}
+              >
+                WATCH VIDEO
+              </b>
+            </h2>
             <ReactPlayer
               className="react-player text-center"
               style={{
                 marginLeft: 50,
-                marginTop: 50,
+                marginTop: 25,
                 marginRight: 50,
                 height: "100%",
               }}
