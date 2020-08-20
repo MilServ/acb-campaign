@@ -126,7 +126,14 @@ export default function PartnersList(props) {
               </a>
             </div>
           </div>
-          <p style={{ color: "black", marginTop: 20 }}>
+          <p
+            style={{
+              color: "black",
+              marginTop: 30,
+              fontSize: ".90rem",
+              textAlign: "center",
+            }}
+          >
             <em>
               Grow with us! Contact <b>sales@americancraftbrands.com</b> to
               learn how to get your brand listed here.
