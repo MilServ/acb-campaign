@@ -47,14 +47,6 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const bizType = [
-  { key: 0, value: "Select Business Type" },
-  { key: 1, value: "Retailer" },
-  { key: 2, value: "Maker" },
-  { key: 3, value: "Distributor" },
-  { key: 4, value: "Importer" },
-];
-
 export default function BuyNowForm(props) {
   const classes = useStyles();
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -114,6 +106,9 @@ export default function BuyNowForm(props) {
     if (!values.buyerPhoneNo) {
       errors.buyerPhoneNo = "Required field";
     }
+    if (!values.buyerLicNo) {
+      errors.buyerLicNo = "Required field";
+    }
 
     return errors;
   }
@@ -123,7 +118,6 @@ export default function BuyNowForm(props) {
       initialValues: {
         buyerLastN: "",
         buyerFirstN: "",
-        buyerRole: "",
         buyerEmail: "",
         buyerLicNo: "",
         buyerBizName: "",
@@ -132,8 +126,6 @@ export default function BuyNowForm(props) {
         buyerLicState: "",
         buyerBizZip: "",
         buyerPhoneNo: "",
-        buyerLegalBizName: "",
-        buyerBizType: 0,
       },
       validate,
       onSubmit: (values) => {
@@ -206,19 +198,7 @@ export default function BuyNowForm(props) {
               </h2>
             </div>
           </div>
-          {/* <div className="row">
-                <div className="col-md-12">
-                  <h4
-                    style={{
-                      color: "whitesmoke",
-                      fontWeight: "400",
-                      fontSize: ".90rem",
-                    }}
-                  >
-                    Message here
-                  </h4>
-                </div>
-              </div> */}
+
           <hr></hr>
           <div>
             <div className="row left text-left">
@@ -299,27 +279,7 @@ export default function BuyNowForm(props) {
                   <div className="validatorText">{errors.buyerEmail}</div>
                 ) : null}
               </div>
-              <div className="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                <input
-                  style={{
-                    border: "solid #383838 .75px",
-                    borderRadius: 5,
-                    marginLeft: 2,
-                    height: 30,
-                    marginTop: 8,
-                    width: "50%",
-                  }}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Your Business Role"
-                  type="text"
-                  name="buyerRole"
-                  required
-                />
-                {touched.buyerRole && errors.buyerRole ? (
-                  <div className="validatorText">{errors.buyerRole}</div>
-                ) : null}
-              </div>
+
               <div className="col-md-12" style={{ marginTop: 10 }}>
                 <div className="col-md-2 mb-2">
                   <label
@@ -412,24 +372,7 @@ export default function BuyNowForm(props) {
               Business Information{" "}
             </label>
             <br></br>
-            <select
-              style={{
-                border: "solid #383838 .75px",
-                borderRadius: 5,
-                margin: 5,
-                height: 30,
-                width: "81%",
-              }}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              name="buyerBizType"
-            >
-              {bizType.map((item) => (
-                <option key={item.key} value={item.key}>
-                  {item.value}{" "}
-                </option>
-              ))}
-            </select>
+
             <input
               style={{
                 border: "solid #383838 .75px",
@@ -440,7 +383,7 @@ export default function BuyNowForm(props) {
               }}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Business Name"
+              placeholder="Business Name (Legal)"
               type="text"
               name="buyerBizName"
               required
@@ -449,22 +392,7 @@ export default function BuyNowForm(props) {
               <div className="validatorText">{errors.buyerBizName}</div>
             ) : null}
             <br></br>
-            <input
-              style={{
-                border: "solid #383838 .75px",
-                borderRadius: 5,
-                margin: 5,
-                height: 30,
-                width: "81%",
-              }}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Legal Business Name (if applicable)"
-              type="text"
-              name="buyerLegalBizName"
-            />
 
-            <br></br>
             <input
               style={{
                 border: "solid #383838 .75px",
@@ -534,6 +462,7 @@ export default function BuyNowForm(props) {
               placeholder="Zip Code"
               type="text"
               name="buyerBizZip"
+              maxLength="5"
               // required
             />
             <input
@@ -549,7 +478,11 @@ export default function BuyNowForm(props) {
               placeholder="NY SLA License Number"
               type="text"
               name="buyerLicNo"
+              required
             />
+            {touched.buyerLicNo && errors.buyerLicNo ? (
+              <div className="validatorText">{errors.buyerLicNo}</div>
+            ) : null}
             <br />
             <small style={{ color: "white" }}>
               To expedite processing, please take a picture of your NY SLA
@@ -581,7 +514,10 @@ export default function BuyNowForm(props) {
               fontSize: ".80rem",
             }}
           >
-            Don't worry! We don't sell your information. See our Privacy Policy.
+            Don't worry! We don't sell your information. See our{" "}
+            <a href="https://www.ninkatek.com/privacy-policy.html">
+              Privacy Policy.
+            </a>
           </h4>
         </form>
       </Modal>

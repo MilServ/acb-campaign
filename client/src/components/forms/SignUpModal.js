@@ -47,14 +47,6 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-const bizType = [
-  { key: 0, value: "Select Business Type" },
-  { key: 1, value: "Retailer" },
-  { key: 2, value: "Maker" },
-  { key: 3, value: "Distributor" },
-  { key: 4, value: "Importer" },
-];
-
 export default function SignUpForm(props) {
   const classes = useStyles();
 
@@ -127,7 +119,6 @@ export default function SignUpForm(props) {
       initialValues: {
         signupLastN: "",
         signupFirstN: "",
-        signupRole: "",
         signupEmail: "",
         signupLicNo: "",
         signupBizName: "",
@@ -136,8 +127,6 @@ export default function SignUpForm(props) {
         signupLicState: "",
         signupBizZip: "",
         signupPhoneNo: "",
-        signupLegalBizName: "",
-        signupBizType: 0,
       },
       validate,
       onSubmit: (values) => {
@@ -305,27 +294,7 @@ export default function SignUpForm(props) {
                   <div className="validatorText">{errors.signupEmail}</div>
                 ) : null}
               </div>
-              <div className="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                <input
-                  style={{
-                    border: "solid #383838 .75px",
-                    borderRadius: 5,
-                    marginLeft: 2,
-                    height: 30,
-                    marginTop: 8,
-                    width: "50%",
-                  }}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Your Business Role"
-                  type="text"
-                  name="signupRole"
-                  required
-                />
-                {touched.signupRole && errors.signupRole ? (
-                  <div className="validatorText">{errors.signupRole}</div>
-                ) : null}
-              </div>
+
               <div className="col-md-12" style={{ marginTop: 10 }}>
                 <div className="col-md-2 mb-2">
                   <label
@@ -419,24 +388,7 @@ export default function SignUpForm(props) {
               Business Information{" "}
             </label>
             <br></br>
-            <select
-              style={{
-                border: "solid #383838 .75px",
-                borderRadius: 5,
-                margin: 5,
-                height: 30,
-                width: "81%",
-              }}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              name="signupBizType"
-            >
-              {bizType.map((item) => (
-                <option key={item.key} value={item.key}>
-                  {item.value}{" "}
-                </option>
-              ))}
-            </select>
+
             <input
               style={{
                 border: "solid #383838 .75px",
@@ -447,7 +399,7 @@ export default function SignUpForm(props) {
               }}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Business Name"
+              placeholder="Business Name (Legal)"
               type="text"
               name="signupBizName"
               required
@@ -456,22 +408,7 @@ export default function SignUpForm(props) {
               <div className="validatorText">{errors.signupBizName}</div>
             ) : null}
             <br></br>
-            <input
-              style={{
-                border: "solid #383838 .75px",
-                borderRadius: 5,
-                margin: 5,
-                height: 30,
-                width: "81%",
-              }}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Legal Business Name (if applicable)"
-              type="text"
-              name="signupLegalBizName"
-            />
 
-            <br></br>
             <input
               style={{
                 border: "solid #383838 .75px",
@@ -541,6 +478,7 @@ export default function SignUpForm(props) {
               placeholder="Zip Code"
               type="text"
               name="signupBizZip"
+              maxLength="5"
               // required
             />
             <input
@@ -590,7 +528,10 @@ export default function SignUpForm(props) {
               fontSize: ".80rem",
             }}
           >
-            Don't worry! We don't sell your information. See our Privacy Policy.
+            Don't worry! We don't sell your information. See our{" "}
+            <a href="https://www.ninkatek.com/privacy-policy.html">
+              Privacy Policy.
+            </a>
           </h4>
         </form>
       </Modal>

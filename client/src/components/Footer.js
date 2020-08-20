@@ -5,12 +5,9 @@ import partner1 from "../images/butternuts.jpeg";
 import partner2 from "../images/lithology.png";
 import partner3 from "../images/redshed.jpg";
 import acbOwlNoText from "../images/acbowlnotext.jpg";
-import partner5 from "../images/massbrew.png";
 import ReactPlayer from "react-player";
-
 import { SocialIcon } from "react-social-icons";
 import vid from "../images/vid.mp4";
-// import Call2ActionBtns from "./Call2ActionBtns";
 import "../App.css";
 import Call2ActionBtns from "./Call2ActionBtns";
 
@@ -67,7 +64,7 @@ function Footer() {
             padding: 15,
           }}
         >
-          <Col xs={12} s={12} md={8} lg={8}>
+          <Col xs={12} s={12} md={6} lg={6}>
             <b className="footerFont">OUR BREWER PARTNERS</b>
           </Col>
         </Row>
@@ -79,7 +76,7 @@ function Footer() {
             paddingBottom: 10,
           }}
         >
-          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
+          <Col style={{ width: "80%" }} xs={4} s={4} md={2} lg={2}>
             <img
               src={partner1}
               className="brewerPartner"
@@ -88,7 +85,7 @@ function Footer() {
             />
           </Col>
 
-          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
+          <Col style={{ width: "80%" }} xs={4} s={4} md={2} lg={2}>
             <img
               src={partner2}
               className="brewerPartner"
@@ -97,7 +94,7 @@ function Footer() {
             />
           </Col>
 
-          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
+          <Col style={{ width: "80%" }} xs={4} s={4} md={2} lg={2}>
             <img
               src={partner3}
               className="brewerPartner"
@@ -105,15 +102,7 @@ function Footer() {
               width="90px"
             />
           </Col>
-          <Col style={{ width: "80%" }} xs={3} s={3} md={2} lg={2}>
-            <img
-              src={partner5}
-              className="brewerPartner"
-              alt="mayflower brewing co logo"
-              width="80px"
-              style={{ borderRadius: 9 }}
-            />
-          </Col>
+
           <Col
             style={{
               justifyContent: "center",
@@ -124,8 +113,8 @@ function Footer() {
             }}
             xs={12}
             s={12}
-            md={2}
-            lg={2}
+            md={3}
+            lg={3}
           >
             <img
               src={acbOwlNoText}
@@ -154,8 +143,8 @@ function Footer() {
             }}
             xs={12}
             s={12}
-            md={2}
-            lg={2}
+            md={3}
+            lg={3}
           >
             <div style={{ display: "block" }}>
               <SocialIcon
@@ -174,25 +163,6 @@ function Footer() {
               />
             </div>
           </Col>
-          {/* <Col xs={3} s={3} md={2} lg={2}>
-            {" "}
-            <img
-              src={partner6}
-              className="brewerPartner"
-              alt="mayflower brewing co logo"
-              width="84px"
-            />
-          </Col> */}
-
-          {/* <Col>
-            <b>Contact</b>
-          </Col>
-
-          <Col>
-            <b>(508)-904-9425</b>
-          </Col>
-
-          <Col>SM ICONS</Col> */}
         </Row>
       </Container>
     </div>

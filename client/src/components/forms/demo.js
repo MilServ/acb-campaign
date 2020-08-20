@@ -421,6 +421,7 @@ export default function DemoForm(props) {
             placeholder="Zip Code"
             type="text"
             name="demoBizZip"
+            maxLength="5"
             // required
           />
           <input
@@ -459,7 +460,13 @@ export default function DemoForm(props) {
             fontSize: ".80rem",
           }}
         >
-          Don't worry! We don't sell your information. See our Privacy Policy.
+          Don't worry! We don't sell your information. See our{" "}
+          <a
+            style={{ color: "white" }}
+            href="https://www.ninkatek.com/privacy-policy.html"
+          >
+            Privacy Policy.
+          </a>
         </h4>
       </form>
     </div>

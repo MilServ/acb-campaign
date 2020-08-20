@@ -13,10 +13,6 @@ const buyersSchema = new mongoose.Schema({
     required: true,
     max: 32,
   },
-  buyerRole: {
-    type: String,
-    trim: true,
-  },
   buyerEmail: {
     type: String,
     trim: true,
@@ -29,11 +25,6 @@ const buyersSchema = new mongoose.Schema({
     required: true,
     lowercase: true,
   },
-  buyerBizType: {
-    type: Number,
-    default: 0,
-    required: true,
-  },
   buyerLicNo: {
     type: String,
     trim: true,
@@ -42,10 +33,6 @@ const buyersSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
-  },
-  buyerLegalBizName: {
-    type: String,
-    trim: true,
   },
   buyerBizSt: {
     type: String,

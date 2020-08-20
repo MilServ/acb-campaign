@@ -10,12 +10,11 @@ import partner2 from "../images/lithology.png";
 import partner3 from "../images/redshed.jpg";
 import acbApp from "../images/acbapp.png";
 import Footer from "./Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import Call2ActionBtns from "../components/Call2ActionBtns";
 import StoryModal1 from "../components/storyModals/StoryModal1";
 import StoryModal2 from "../components/storyModals/StoryModal2";
 import StoryModal3 from "../components/storyModals/StoryModal3";
+import PartnersList from "./storyModals/PartnersList";
 // ACB Colors
 // ACB Green: #68813c , rgba(104, 129, 60, 0.75)
 // ACB Brown: #bb6125
@@ -174,10 +173,7 @@ function Body() {
           </Col>
         </Row>
 
-        <Row
-          style={{ marginBottom: 40, justifyContent: "normal" }}
-          className="text-center"
-        >
+        <Row style={{ marginBottom: 40, justifyContent: "left", padding: 0 }}>
           <Col
             xs={8}
             s={8}
@@ -188,12 +184,9 @@ function Body() {
               maxHeight: "50px",
               paddingTop: "24px",
               paddingBottom: "10px",
-              textAlign: "center",
             }}
           >
-            <div id="seeMoreBrewers">
-              <FontAwesomeIcon icon={faHandshake} /> See More Brewer Partners
-            </div>
+            <PartnersList />
           </Col>
         </Row>
         <Row
@@ -206,14 +199,14 @@ function Body() {
               style={{
                 color: "white",
                 backgroundColor: "#68813c",
-                padding: 30,
+                padding: 20,
                 borderRadius: 8,
               }}
             >
-              <em>
+              <em style={{ fontSize: ".95rem" }}>
                 All these great products and the ones still to come are
                 available for ordering and retailer delivery via{" "}
-                <b> www.AmericanCraftBrands.com</b>
+                <b>sales@americancraftbrands.com</b>
               </em>
               .
             </p>

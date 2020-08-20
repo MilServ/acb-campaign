@@ -13,10 +13,6 @@ const signUpsSchema = new mongoose.Schema({
     required: true,
     max: 32,
   },
-  signupRole: {
-    type: String,
-    trim: true,
-  },
   signupEmail: {
     type: String,
     trim: true,
@@ -29,11 +25,6 @@ const signUpsSchema = new mongoose.Schema({
     required: true,
     lowercase: true,
   },
-  signupBizType: {
-    type: Number,
-    default: 0,
-    required: true,
-  },
   signupLicNo: {
     type: String,
     trim: true,
@@ -42,10 +33,6 @@ const signUpsSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
-  },
-  signupLegalBizName: {
-    type: String,
-    trim: true,
   },
   signupBizSt: {
     type: String,
