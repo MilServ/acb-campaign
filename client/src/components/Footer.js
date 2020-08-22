@@ -49,7 +49,7 @@ function Footer() {
             <ReactPlayer
               className="react-player text-center"
               style={{
-                marginLeft: 50,
+                marginLeft: 30,
                 marginTop: 25,
                 marginRight: 50,
                 height: "100%",

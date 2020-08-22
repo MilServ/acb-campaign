@@ -46,7 +46,7 @@ export default function PartnersList(props) {
         onClick={openModal}
         style={{
           margin: 0,
-          width: "155px",
+          width: "auto",
           borderRadius: 8,
           fontSize: "0.90rem",
           cursor: "pointer",

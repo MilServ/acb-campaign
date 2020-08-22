@@ -224,10 +224,6 @@ body {
     font-style: italic;
   }
 
-  /* .first2Know {
-    margin-bottom: 1rem;
-  } */
-
   #displayNone {
     display: none;
   }
@@ -237,37 +233,45 @@ body {
   } */
 }
 
-@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+@media (max-width: 420px) {
   #first2Know {
-    font-size: 2.5rem;
-    padding-top: 50px;
+    font-size: 2.1rem;
+    padding-top: 40px;
   }
+
   #introducing {
-    font-size: 1rem;
-  }
-  .App-logo {
-    height: 14vmin;
-  }
-  .App-header {
-    height: 55px;
-  }
-  .topBar {
-    height: 50px;
+    font-size: 0.9rem;
+    line-height: 1.6 !important;
+    font-stretch: extra-condensed !important;
+    font-weight: bolder !important;
+    font-style: italic;
   }
 }
 
-@media (min-width: 85.375em) {
-  .App-logo {
-    height: 14vmin;
+@media (max-width: 302px) {
+  #first2Know {
+    font-size: 2.1rem;
+    padding-top: 40px;
+  }
+
+  #introducing {
+    display: none !important;
+  }
+
+  #seeMoreBrewers {
+    color: #bb6125;
+    font-size: 0.78rem;
+    font-weight: 400;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    transition: all 0.2s ease-in-out;
+    /* width: 84%; */
+    cursor: pointer;
+    scale: 0.5;
   }
 }
-@media (min-width: 120em) {
-  .App-logo {
-    height: 12vmin;
-  }
-}
-@media (min-width: 160em) {
-  .App-logo {
-    height: 12vmin;
-  }
-}
+
+/* @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
+  
+} */

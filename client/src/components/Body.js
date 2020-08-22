@@ -175,8 +175,8 @@ function Body() {
 
         <Row style={{ marginBottom: 40, justifyContent: "left", padding: 0 }}>
           <Col
-            xs={8}
-            s={8}
+            xs={12}
+            s={10}
             md={4}
             lg={4}
             xlg={4}

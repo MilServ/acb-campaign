@@ -8,7 +8,7 @@ import owlHead from "../images/owlhead.jpg";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 255,
+    minWidth: "auto",
     minHeight: 170,
     color: "whitesmoke",
     fontWeight: "800",
