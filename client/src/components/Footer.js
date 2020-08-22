@@ -31,6 +31,7 @@ function Footer() {
               justifyContent: "center",
               paddingTop: 40,
               paddingBottom: 30,
+              paddingRight: 0,
             }}
             xs={12}
             s={12}
@@ -47,17 +48,13 @@ function Footer() {
               </b>
             </h2>
             <ReactPlayer
-              className="react-player text-center"
+              className="react-player text-center mr-0"
               style={{
-                marginLeft: 30,
-                marginTop: 25,
-                marginRight: 50,
-                height: "100%",
+                padding: 10,
+                marginLeft: 20,
               }}
               url={vid}
-              // src={vid}
-              width="80%"
-              height="auto"
+              width="90%"
               controls={true}
             />
             <div>

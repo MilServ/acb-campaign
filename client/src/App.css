@@ -246,6 +246,12 @@ body {
     font-weight: bolder !important;
     font-style: italic;
   }
+  .react-player {
+    padding-left: 1 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 @media (max-width: 302px) {
