@@ -34,13 +34,20 @@ app.use(
 // require("./config/passport")(passport);
 
 //DB Config
-const db = require("./config/keys").mongoURI;
+// const db = require("./config/keys").mongoURI;
 
-//Connect to Mongo
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch((err) => console.log(err));
+// Connect to MongoDB
+mongoose.connect(
+  "mongodb+srv://acbUser:acbrules2020@cluster0.ehppx.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  { useNewUrlParser: true }
+);
+mongoose.connection
+  .once("open", function () {
+    console.log("Conection has been made!");
+  })
+  .on("error", function (error) {
+    console.log("Error is: ", error);
+  });
 
 const port = process.env.PORT || 5000;
 
