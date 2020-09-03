@@ -77,9 +77,9 @@ export default function StoryModal1(props) {
           {" "}
           Red Shed Brewing, of Cooperstown and Cherry Valley NY, has been
           delighting baseball fans and vacationers to central NY with
-          hand-crafted beers using only local ingredients since 2017[?]. Their
-          Red Shed brand includes 2019 NY State Silver Medal winner – Jessica’s
-          Red Ale. A customer favorite.
+          hand-crafted beers using only local ingredients since 2017. Their Red
+          Shed brand includes 2019 NY State Silver Medal winner – Jessica’s Red
+          Ale. A customer favorite.
         </p>
         <p id="modal-text">
           {" "}
