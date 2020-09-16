@@ -21,7 +21,7 @@ import PartnersList from "./storyModals/PartnersList";
 
 function Body() {
   return (
-    <div className="container mb-0">
+    <div className="container mb-0 pb-4">
       <div className="container nySkyline">
         <div className="row text-center first2Know">
           {/* dfghjkl;k */}

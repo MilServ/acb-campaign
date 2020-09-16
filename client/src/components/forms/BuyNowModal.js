@@ -137,7 +137,7 @@ export default function BuyNowForm(props) {
               alert(
                 "Thank you, " +
                   values.buyerBizName +
-                  ". Your request for a buyer has been submitted. An American Craft Brands Rep will contact you within 24 business hours for scheduling."
+                  ". Your request has been submitted. An American Craft Brands Rep will contact you within 24 business hours for scheduling."
               );
               window.location.reload();
             }
