@@ -27,17 +27,14 @@ app.use(
   })
 );
 
-mongoose.connect(
-  "mongodb+srv://acbUser:acbrules2020@cluster0.ehppx.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  { useNewUrlParser: true }
-);
-mongoose.connection
-  .once("open", function () {
-    console.log("Conection has been made!");
-  })
-  .on("error", function (error) {
-    console.log("Error is: ", error);
-  });
+// DB Config
+const db = require("./config/keys").mongoURI;
+
+// Connect to Mongo
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch((err) => console.log(err));
 
 const port = process.env.PORT || 5000;
 
